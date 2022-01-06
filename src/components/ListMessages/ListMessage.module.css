@@ -1,0 +1,15 @@
+.contentGeral{
+    background-color: #0856a5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 20vw;
+    min-height: 80vh;
+    border-radius: 0 10px 10px 0;
+}
+
+.contentButton{
+    margin-bottom: 20px;
+    margin-left: 14vw;
+}
