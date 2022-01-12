@@ -1,8 +1,8 @@
-import styles from 'MessageContent.module.css'
+import styles from './MessageContent.module.css'
 
 export default function index(){
     return (
-        <div>
+        <div className={styles.contentGeral}>
             <h2>Ola</h2>
         </div>
     )
