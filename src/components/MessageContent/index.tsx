@@ -65,7 +65,10 @@ export default function index() {
                     </div>
                 </div>
             </div>
-            <h2>dsa</h2>
+            <div className={styles.contentInput}>
+                <input type="text" />
+                <input type="submit"/>
+            </div>
         </div>
     )
 }

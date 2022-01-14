@@ -58,3 +58,29 @@
     padding: 5px;
     border-radius: 10px;
 }
+
+.contentInput{
+    height: 8vh;
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentInput input[type='text']{
+    width: 40vw;
+    height: 4vh;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+
+.contentInput input[type='submit']{
+    margin-left: 30px;
+    height: 3vh;
+    width: 4vw;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
