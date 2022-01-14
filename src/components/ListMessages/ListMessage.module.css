@@ -2,7 +2,7 @@
     background-color: #0856a5;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: column;
     width: 20vw;
     min-height: 80vh;
@@ -12,4 +12,31 @@
 .contentButton{
     margin-bottom: 20px;
     margin-left: 14vw;
+}
+
+.contentInput{
+    height: 4vh;
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #11659c;
+    border-top: 2px solid #11659c;
+}
+
+.contentInput input{
+    width: 15vw;
+    height: 3vh;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+
+.contentUserMessage{
+    width: 20vw;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #11659c;
 }
