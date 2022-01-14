@@ -9,7 +9,7 @@
 
 .contentMessages{
     margin-top: 25px;
-    width: 65vw;
+    width: 75vw;
     min-height: 5vh;
     max-height: 75vh;
     overflow: scroll;
@@ -19,7 +19,7 @@
 .contentMessagesUnicUserSelf{
     margin: 10px 0;
     min-height: 5vh;
-    width: 60vw;
+    width: 75vw;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -28,7 +28,7 @@
 .contentMessagesUnicOutUser{
     margin: 10px 0;
     min-height: 5vh;
-    width: 60vw;
+    width: 70vw;
     display: flex;
     align-items: center;
     justify-content: flex-end;

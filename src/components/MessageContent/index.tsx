@@ -21,7 +21,7 @@ export default function index() {
                 </div>
                 <div className={styles.contentMessagesUnicOutUser}>
                     <div className={styles.messageWithUser}>
-                        <p>Olassd sadsad sadsad sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa</p>
+                        <p>Olassd sadsad sadsad sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa</p>
                     </div>
                 </div>
             </div>
