@@ -8,7 +8,7 @@ export default function ButtonAppBar() {
           ChatSocial
         </div>
         <div className={styles.boxPhoto}>
-          Foto Logado
+          Login
         </div>
       </div>
       <div className={styles.contentNameUserMessage}>

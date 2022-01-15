@@ -33,3 +33,14 @@
     border-left: 2px solid #95bbe2;
     background-color: #0963bd;
 }
+
+.boxPhoto{
+    background-color: #fff;
+    height: 35px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
