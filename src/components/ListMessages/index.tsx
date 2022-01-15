@@ -1,16 +1,15 @@
 import BoxMessage from '../BoxMessage'
-
-import styles from './ListMessage.module.css'
+import List from './List.style'
 
 export default function index() {
     return (
-        <div className={styles.contentGeral}>
-            <div className={styles.contentInput}>
+        <List>
+            <div>
                 <input type="text" />
             </div>
-            <div className={styles.contentUserMessage}>
+            <div>
                 <BoxMessage />
             </div>
-        </div>
+        </List>
     )
 }

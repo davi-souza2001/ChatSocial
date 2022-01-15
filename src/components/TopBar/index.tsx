@@ -1,19 +1,18 @@
 import route from 'next/router'
-
-import styles from './TopBar.module.css'
+import TopBar from './TopBar.style'
 
 export default function ButtonAppBar() {
   return (
-    <div className={styles.contentGeral}>
-      <div className={styles.boxContentGeral}>
-        <div className={styles.boxContent}>
+    <TopBar>
+      <div>
+        <div>
           ChatSocial
         </div>
-        <div className={styles.boxPhoto} onClick={() => route.push('/login')}>
+        <div onClick={() => route.push('/login')}>
           Login
         </div>
       </div>
-      <div className={styles.contentNameUserMessage}>
+      <div>
         <div>
           Foto
         </div>
@@ -24,6 +23,6 @@ export default function ButtonAppBar() {
           País da pessoa
         </div>
       </div>
-    </div>
+    </TopBar>
   );
 }

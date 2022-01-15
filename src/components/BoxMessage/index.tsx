@@ -1,12 +1,11 @@
 import Image from 'next/image'
 import Eu from '../../../public/pp.jpg'
-
-import styles from './BoxMessage.module.css'
+import Box from './Box.style'
 
 export default function index() {
     return (
-        <div className={styles.contentGeral}>
-            <div className={styles.contentImageUser}>
+        <Box>
+            <div>
                 <Image src={Eu} width={40} height={40}/>
             </div>
             <div>
@@ -17,6 +16,6 @@ export default function index() {
                     Ultima mensagem
                 </div>
             </div>
-        </div>
+        </Box>
     )
 }

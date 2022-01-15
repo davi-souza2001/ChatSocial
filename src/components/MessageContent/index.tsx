@@ -1,74 +1,18 @@
-import styles from './MessageContent.module.css'
+import Chat from './Chat.style'
 
 export default function index() {
     return (
-        <div className={styles.contentGeral}>
-            <div className={styles.contentMessages}>
-                <div className={styles.contentMessagesUnicUserSelf}>
-                    <div className={styles.messageOutUser}>
-                        <p>Ola</p>
-                    </div>
-                </div>
-                <div className={styles.contentMessagesUnicUserSelf}>
-                    <div className={styles.messageOutUser}>
-                        <p>Olassd sadsad sadsad sa asdsadsa</p>
-                    </div>
-                </div>
-                <div className={styles.contentMessagesUnicOutUser}>
-                    <div className={styles.messageWithUser}>
-                        <p>Ola</p>
-                    </div>
-                </div>
-                <div className={styles.contentMessagesUnicOutUser}>
-                    <div className={styles.messageWithUser}>
-                        <p>Olassd sadsad sadsad sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa</p>
-                    </div>
-                </div>
-                <div className={styles.contentMessagesUnicUserSelf}>
-                    <div className={styles.messageOutUser}>
-                        <p>Ola</p>
-                    </div>
-                </div>
-                <div className={styles.contentMessagesUnicUserSelf}>
-                    <div className={styles.messageOutUser}>
-                        <p>Olassd sadsad sadsad sa asdsadsa</p>
-                    </div>
-                </div>
-                <div className={styles.contentMessagesUnicOutUser}>
-                    <div className={styles.messageWithUser}>
-                        <p>Ola</p>
-                    </div>
-                </div>
-                <div className={styles.contentMessagesUnicOutUser}>
-                    <div className={styles.messageWithUser}>
-                        <p>Olassd sadsad sadsad sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa</p>
-                    </div>
-                </div>
-                <div className={styles.contentMessagesUnicUserSelf}>
-                    <div className={styles.messageOutUser}>
-                        <p>Ola</p>
-                    </div>
-                </div>
-                <div className={styles.contentMessagesUnicUserSelf}>
-                    <div className={styles.messageOutUser}>
-                        <p>Olassd sadsad sadsad sa asdsadsa</p>
-                    </div>
-                </div>
-                <div className={styles.contentMessagesUnicOutUser}>
-                    <div className={styles.messageWithUser}>
-                        <p>Ola</p>
-                    </div>
-                </div>
-                <div className={styles.contentMessagesUnicOutUser}>
-                    <div className={styles.messageWithUser}>
-                        <p>Olassd sadsad sadsad sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa sa asdsadsa</p>
-                    </div>
-                </div>
-            </div>
-            <div className={styles.contentInput}>
+        <Chat>
+            <section className="chat-left">
+                <p>Teste</p>
+            </section>
+            <section className="chat-right">
+                <p>Teste</p>
+            </section>
+            <div>
                 <input type="text" />
                 <input type="submit"/>
             </div>
-        </div>
+        </Chat>
     )
 }
