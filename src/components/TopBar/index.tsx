@@ -1,3 +1,5 @@
+import route from 'next/router'
+
 import styles from './TopBar.module.css'
 
 export default function ButtonAppBar() {
@@ -7,7 +9,7 @@ export default function ButtonAppBar() {
         <div className={styles.boxContent}>
           ChatSocial
         </div>
-        <div className={styles.boxPhoto}>
+        <div className={styles.boxPhoto} onClick={() => route.push('/login')}>
           Login
         </div>
       </div>
