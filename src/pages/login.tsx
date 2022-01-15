@@ -3,13 +3,12 @@ import styles from '../styles/Login.module.css'
 
 export default function login(){
 
-    const { alo } = useAuth()
-    console.log(alo)
+    const { loginGoogle } = useAuth()
 
     return (
         <div className={styles.contentGeral}>
             <div className={styles.contentLogin}>
-                <div className={styles.login}>
+                <div className={styles.login} onClick={loginGoogle}>
                     <h2>Login</h2>
                 </div>
             </div>
