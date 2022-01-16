@@ -7,10 +7,8 @@ import Cookie from 'js-cookie'
 import User from "../../models/User";
 
 interface AuthContextProps {
-    user?: User;
     loading?: boolean;
     loginGoogle?: () => Promise<void>;
-    logout?: () => Promise<void>;
     getIfUserExists?: Function
 }
 
@@ -57,6 +55,9 @@ async function searchUserInformation(userToken: String) {
 
 export function AuthProvider(props: any) {
     const [loading, setLoading] = useState(true)
+    const [user, setUser] = useState<User>({
+        id: '', name: '', photo: '', email: ''
+    })
     const token = Cookie.get('Admin-cookie-social-chat')
 
     async function loginGoogle() {
