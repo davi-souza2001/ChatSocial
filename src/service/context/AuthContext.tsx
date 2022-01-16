@@ -4,11 +4,10 @@ import { createContext, useEffect, useState } from 'react'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { auth, database, ref, get, set, child } from '../../firebase/config'
 import Cookie from 'js-cookie'
-import { setCookie } from 'nookies'
 import User from "../../models/User";
 
 interface AuthContextProps {
-    userLogged?: User;
+    user?: User;
     loading?: boolean;
     loginGoogle?: () => Promise<void>;
     logout?: () => Promise<void>;
@@ -20,11 +19,8 @@ const AuthContext = createContext<AuthContextProps>({})
 const provider = new GoogleAuthProvider()
 
 function setCookieIdUser(user: User) {
-    // Cookie.set('Admin-cookie-social-chat', user.id, {
-    //     expires: 7
-    // })
-    setCookie(undefined, 'Admin-cookie-social-chat', user.id, {
-        maxAge: 60 * 60 * 1 // 1 hour
+    Cookie.set('Admin-cookie-social-chat', user.id, {
+        expires: 7
     })
     route.push('/')
 }
@@ -48,9 +44,9 @@ async function setUserInDataBase(user: User) {
     })
 }
 
-async function recoverUserInformation() {
+async function searchUserInformation(userToken: String) {
     const dbRef = ref(database)
-    get(child(dbRef, '/users')).then((res) => {
+    get(child(dbRef, `/users/${userToken}`)).then((res) => {
         if (res.exists()) {
             console.log(res.val())
         }
@@ -61,6 +57,7 @@ async function recoverUserInformation() {
 
 export function AuthProvider(props: any) {
     const [loading, setLoading] = useState(true)
+    const token = Cookie.get('Admin-cookie-social-chat')
 
     async function loginGoogle() {
         await signInWithPopup(auth, provider).then((result) => {
@@ -76,17 +73,15 @@ export function AuthProvider(props: any) {
         }).catch((error) => {
             const errorMessage = error.message
             console.log(errorMessage)
-            // setLoading(false)
+            setLoading(false)
         })
     }
 
     useEffect(() => {
-        const token = Cookie.get('Admin-cookie-social-chat')
-        console.log
         if (token) {
-            recoverUserInformation()
+            searchUserInformation(token)
         }
-    }, [])
+    }, [token])
 
     return (
         <AuthContext.Provider value={{ loginGoogle, loading }}>
