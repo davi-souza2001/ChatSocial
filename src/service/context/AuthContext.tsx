@@ -1,7 +1,7 @@
 import route from 'next/router'
 import { createContext, useState } from 'react'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
-import { auth } from '../../firebase/config'
+import { auth, database, ref, set, child } from '../../firebase/config'
 
 import User from "../../models/User";
 
@@ -17,6 +17,13 @@ const AuthContext = createContext<AuthContextProps>({})
 
 const provider = new GoogleAuthProvider()
 
+async function setUserInDataBase(user: User){
+    console.log(user)
+    set(ref(database, 'users/' + user.email), {
+        user
+    })
+}  
+
 export function AuthProvider(props: any) {
     const [loading, setLoading] = useState(true)
 
@@ -30,9 +37,10 @@ export function AuthProvider(props: any) {
                 id: user.uid
             }
             console.log(userFinal)
-            setLoading(false)
+            setUserInDataBase(userFinal)
         }).finally(() => {
-            route.push('/')
+            setLoading(false)
+            // route.push('/')
         }).catch((error) => {
             const errorMessage = error.message
             console.log(errorMessage)
