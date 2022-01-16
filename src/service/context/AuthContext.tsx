@@ -1,9 +1,10 @@
 import route from 'next/router'
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { auth, database, ref, get, set, child } from '../../firebase/config'
 import Cookie from 'js-cookie'
+import { setCookie } from 'nookies'
 import User from "../../models/User";
 
 interface AuthContextProps {
@@ -18,10 +19,14 @@ const AuthContext = createContext<AuthContextProps>({})
 
 const provider = new GoogleAuthProvider()
 
-function setCookieIdUser(user: User){
-    Cookie.set('Admin-cookie-social-chat', user.id, {
-        expires: 7
+function setCookieIdUser(user: User) {
+    // Cookie.set('Admin-cookie-social-chat', user.id, {
+    //     expires: 7
+    // })
+    setCookie(undefined, 'Admin-cookie-social-chat', user.id, {
+        maxAge: 60 * 60 * 1 // 1 hour
     })
+    route.push('/')
 }
 
 async function setUserInDataBase(user: User) {
@@ -31,7 +36,6 @@ async function setUserInDataBase(user: User) {
             // console.log(snapshot.val())
             setCookieIdUser(user)
         } else {
-            console.log('Creating user')
             set(ref(database, 'users/' + user.id), {
                 name: user.name,
                 email: user.email,
@@ -41,6 +45,17 @@ async function setUserInDataBase(user: User) {
         }
     }).catch((error: any) => {
         console.error(error);
+    })
+}
+
+async function recoverUserInformation() {
+    const dbRef = ref(database)
+    get(child(dbRef, '/users')).then((res) => {
+        if (res.exists()) {
+            console.log(res.val())
+        }
+    }).catch((error) => {
+        console.log(error)
     })
 }
 
@@ -57,15 +72,21 @@ export function AuthProvider(props: any) {
                 id: user.uid
             }
             setUserInDataBase(userFinal)
-        }).finally(() => {
             setLoading(false)
-            // route.push('/')
         }).catch((error) => {
             const errorMessage = error.message
             console.log(errorMessage)
-            setLoading(false)
+            // setLoading(false)
         })
     }
+
+    useEffect(() => {
+        const token = Cookie.get('Admin-cookie-social-chat')
+        console.log
+        if (token) {
+            recoverUserInformation()
+        }
+    }, [])
 
     return (
         <AuthContext.Provider value={{ loginGoogle, loading }}>
