@@ -1,8 +1,6 @@
 export default interface User {
-    uid: string
-    email: string
-    name: string
-    token: string
-    provedor: string
-    imagemUrl: string
+    id: any 
+    email: any 
+    name: any 
+    photo: any 
 }

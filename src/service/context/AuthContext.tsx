@@ -1,49 +1,47 @@
+import route from 'next/router'
 import { createContext, useState } from 'react'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
-import {auth} from '../../firebase/config'
+import { auth } from '../../firebase/config'
 
 import User from "../../models/User";
 
 interface AuthContextProps {
-    user?: User;
+    userLogged?: User;
     loading?: boolean;
     loginGoogle?: () => Promise<void>;
     logout?: () => Promise<void>;
+    getIfUserExists?: Function
 }
 
 const AuthContext = createContext<AuthContextProps>({})
 
 const provider = new GoogleAuthProvider()
 
-export function AuthProvider(props: any){
+export function AuthProvider(props: any) {
+    const [loading, setLoading] = useState(true)
+
     async function loginGoogle() {
-        
-        signInWithPopup(auth, provider).then((result) => {
-            const credential = GoogleAuthProvider.credentialFromResult(result)
-            const token = credential?.accessToken
+        await signInWithPopup(auth, provider).then((result) => {
             const user = result.user
-            const userFinal = {
+            const userFinal: User = {
                 name: user.displayName,
                 email: user.email,
                 photo: user.photoURL,
                 id: user.uid
             }
             console.log(userFinal)
+            setLoading(false)
+        }).finally(() => {
+            route.push('/')
         }).catch((error) => {
-            const errorCode = error.code
             const errorMessage = error.message
-            const email = error.email
-            const credential = GoogleAuthProvider.credentialFromError(error)
-            const errorFinal = {
-                errorCode,
-                errorMessage,
-                email
-            }
+            console.log(errorMessage)
+            setLoading(false)
         })
     }
-    
+
     return (
-        <AuthContext.Provider value={{loginGoogle}}>
+        <AuthContext.Provider value={{ loginGoogle, loading }}>
             {props.children}
         </AuthContext.Provider>
     )
