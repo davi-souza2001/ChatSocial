@@ -1,2 +1,2 @@
-<!-- Refazer topBar -->
 Building...
+<!-- Refazer topBar -->
