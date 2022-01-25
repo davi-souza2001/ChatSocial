@@ -2,5 +2,5 @@ export default interface User {
     id: String
     email: String | null 
     name: String | null 
-    photo: String | null 
+    photo: string | null 
 }

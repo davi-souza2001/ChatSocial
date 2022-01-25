@@ -9,6 +9,7 @@ import User from "../../models/User";
 interface AuthContextProps {
     loading?: boolean;
     loginGoogle?: () => Promise<void>;
+    user?: User
     getIfUserExists?: Function
 }
 
@@ -33,7 +34,8 @@ async function setUserInDataBase(user: User) {
             set(ref(database, 'users/' + user.id), {
                 name: user.name,
                 email: user.email,
-                photo: user.photo
+                photo: user.photo,
+                id: user.id
             })
             setCookieIdUser(user)
         }
@@ -42,21 +44,10 @@ async function setUserInDataBase(user: User) {
     })
 }
 
-async function searchUserInformation(userToken: String) {
-    const dbRef = ref(database)
-    get(child(dbRef, `/users/${userToken}`)).then((res) => {
-        if (res.exists()) {
-            console.log(res.val())
-        }
-    }).catch((error) => {
-        console.log(error)
-    })
-}
-
 export function AuthProvider(props: any) {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState<User>({
-        id: '', name: '', photo: '', email: ''
+        id: '', email: '', name: '', photo: ''
     })
     const token = Cookie.get('Admin-cookie-social-chat')
 
@@ -78,6 +69,19 @@ export function AuthProvider(props: any) {
         })
     }
 
+    async function searchUserInformation(userToken: String) {
+        const dbRef = ref(database)
+        let test
+        get(child(dbRef, `/users/${userToken}`)).then((res) => {
+            if (res.exists()) {
+                // console.log(res.val())
+                setUser(res.val()) 
+            }
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+    
     useEffect(() => {
         if (token) {
             searchUserInformation(token)
@@ -85,7 +89,7 @@ export function AuthProvider(props: any) {
     }, [token])
 
     return (
-        <AuthContext.Provider value={{ loginGoogle, loading }}>
+        <AuthContext.Provider value={{ loginGoogle, loading, user}}>
             {props.children}
         </AuthContext.Provider>
     )
