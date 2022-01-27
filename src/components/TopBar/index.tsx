@@ -16,7 +16,7 @@ export default function ButtonAppBar() {
           </div>
         )}
         <div className={styles.boxContent}>
-          ChatSocial
+          {user?.name ? <h2>{user.name}</h2> : <h2>Logar</h2>}
         </div>
         <div className={styles.boxPhoto} onClick={() => {
           if (user) {
@@ -25,7 +25,7 @@ export default function ButtonAppBar() {
             route.push('/login')
           }
         }}>
-          {user ? user.name : 'Login'}
+          {user ? 'Logout' : 'Login'}
         </div>
       </div>
       <div className={styles.contentNameUserMessage}>
