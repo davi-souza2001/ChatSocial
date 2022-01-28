@@ -11,12 +11,12 @@ export default function ButtonAppBar() {
     <div className={styles.contentGeral}>
       <div className={styles.boxContentGeral}>
         {user?.photo &&  (
-          <div>
+          <div className={styles.boxContentImageUser}>
             <Image src={user.photo} width={100} height={100} />
           </div>
         )}
         <div className={styles.boxContent}>
-          {user?.name ? <h2>{user.name}</h2> : <h2>Logar</h2>}
+          {user?.name ? <h4>{user.name}</h4> : <h2>Logar</h2>}
         </div>
         <div className={styles.boxPhoto} onClick={() => {
           if (user) {
@@ -25,7 +25,7 @@ export default function ButtonAppBar() {
             route.push('/login')
           }
         }}>
-          {user ? 'Logout' : 'Login'}
+          {user ? 'O' : 'L'}
         </div>
       </div>
       <div className={styles.contentNameUserMessage}>
