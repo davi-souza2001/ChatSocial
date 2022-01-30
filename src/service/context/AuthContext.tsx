@@ -4,7 +4,7 @@ import { createContext, useEffect, useState } from 'react'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { auth, database, ref, get, set, child } from '../../firebase/config'
 import Cookie from 'js-cookie'
-import User from "../../models/User";
+import User from "../../models/User"
 
 interface AuthContextProps {
     loading?: boolean;
@@ -75,13 +75,13 @@ export function AuthProvider(props: any) {
         get(child(dbRef, `/users/${userToken}`)).then((res) => {
             if (res.exists()) {
                 // console.log(res.val())
-                setUser(res.val()) 
+                setUser(res.val())
             }
         }).catch((error) => {
             console.log(error)
         })
     }
-    
+
     useEffect(() => {
         if (token) {
             searchUserInformation(token)
@@ -89,7 +89,7 @@ export function AuthProvider(props: any) {
     }, [token])
 
     return (
-        <AuthContext.Provider value={{ loginGoogle, loading, user}}>
+        <AuthContext.Provider value={{ loginGoogle, loading, user }}>
             {props.children}
         </AuthContext.Provider>
     )
