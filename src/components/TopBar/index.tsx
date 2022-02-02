@@ -7,7 +7,7 @@ import useAuth from '../../service/hook/useAuth'
 import styles from './TopBar.module.css'
 
 export default function ButtonAppBar() {
-  const { user } = useAuth()
+  const { user, loginGoogle } = useAuth()
 
   function logout() {
     Cookie.remove('Admin-cookie-social-chat')
@@ -23,7 +23,7 @@ export default function ButtonAppBar() {
           </div>
         )}
         <div className={styles.boxContent}>
-          {user?.name ? <h4  onClick={logout}>{user.name}</h4> : <h2>Logar</h2>}
+          {user?.name ? <h4  onClick={logout}>{user.name}</h4> : <h2 onClick={loginGoogle}>Logar</h2>}
         </div>
       </div>
       <div className={styles.contentNameUserMessage}>

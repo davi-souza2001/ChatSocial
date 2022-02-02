@@ -9,7 +9,7 @@ export default function index() {
                 <input type="text" />
             </div>
             <div className={styles.contentUserMessage}>
-                <BoxMessage />
+                <BoxMessage name={'Geral'}/>
             </div>
         </div>
     )
