@@ -2,15 +2,16 @@ import route from 'next/router'
 import { createContext, useEffect, useState } from 'react'
 
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
-import { auth, database, ref, get, set, child } from '../../firebase/config'
+import { auth, database, ref, get, set, child, onValue } from '../../firebase/config'
 import Cookie from 'js-cookie'
 import User from "../../models/User"
 
 interface AuthContextProps {
     loading?: boolean;
     loginGoogle?: () => Promise<void>;
-    user?: User
-    getIfUserExists?: Function
+    user?: User;
+    getIfUserExists?: Function;
+    users?: Object
 }
 
 const AuthContext = createContext<AuthContextProps>({})
@@ -50,6 +51,7 @@ export function AuthProvider(props: any) {
         id: '', email: '', name: '', photo: ''
     })
     const token = Cookie.get('Admin-cookie-social-chat')
+    const [users, setUsers] = useState({})
 
     async function loginGoogle() {
         await signInWithPopup(auth, provider).then((result) => {
@@ -82,14 +84,32 @@ export function AuthProvider(props: any) {
         })
     }
 
+    async function getUsers(){
+        const dbRef = ref(database)
+        get(child(dbRef, `/users`)).then((snapshot) => {
+            if(snapshot.exists()){
+                // console.log(snapshot.val())
+                setUsers(snapshot.val())
+            } else {
+                console.log('Não tem nada')
+            }
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
     useEffect(() => {
         if (token) {
             searchUserInformation(token)
         }
     }, [token])
 
+    useEffect(() => {
+        getUsers()
+    }, [])
+
     return (
-        <AuthContext.Provider value={{ loginGoogle, loading, user }}>
+        <AuthContext.Provider value={{ loginGoogle, loading, user, users }}>
             {props.children}
         </AuthContext.Provider>
     )
