@@ -11,7 +11,7 @@ interface AuthContextProps {
     loginGoogle?: () => Promise<void>;
     user?: User;
     getIfUserExists?: Function;
-    users?: Object
+    users?: Array<any>
 }
 
 const AuthContext = createContext<AuthContextProps>({})
@@ -51,7 +51,7 @@ export function AuthProvider(props: any) {
         id: '', email: '', name: '', photo: ''
     })
     const token = Cookie.get('Admin-cookie-social-chat')
-    const [users, setUsers] = useState({})
+    const [users, setUsers]: Array<any> = useState([])
 
     async function loginGoogle() {
         await signInWithPopup(auth, provider).then((result) => {
@@ -84,12 +84,17 @@ export function AuthProvider(props: any) {
         })
     }
 
-    async function getUsers(){
+    async function getUsers() {
         const dbRef = ref(database)
         get(child(dbRef, `/users`)).then((snapshot) => {
-            if(snapshot.exists()){
+            if (snapshot.exists()) {
                 // console.log(snapshot.val())
-                setUsers(snapshot.val())
+                const allUsers = snapshot.val()
+                const userList: Array<any> = []
+                for (let id in allUsers) {
+                    userList.push({ id, ...allUsers[id] });
+                }
+                setUsers(userList)
             } else {
                 console.log('Não tem nada')
             }
