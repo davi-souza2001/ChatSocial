@@ -11,7 +11,9 @@ interface AuthContextProps {
     loginGoogle?: () => Promise<void>;
     user?: User;
     getIfUserExists?: Function;
-    users?: Array<Object>
+    users?: Array<Object>;
+    messageUserUnic?: String;
+    setMessageUserUnic?: any;
 }
 
 const AuthContext = createContext<AuthContextProps>({})
@@ -50,8 +52,9 @@ export function AuthProvider(props: any) {
     const [user, setUser] = useState<User>({
         id: '', email: '', name: '', photo: ''
     })
-    const token = Cookie.get('Admin-cookie-social-chat')
     const [users, setUsers]: Array<any> = useState([])
+    const [messageUserUnic, setMessageUserUnic] = useState('Geral')
+    const token = Cookie.get('Admin-cookie-social-chat')
 
     async function loginGoogle() {
         await signInWithPopup(auth, provider).then((result) => {
@@ -114,7 +117,7 @@ export function AuthProvider(props: any) {
     }, [])
 
     return (
-        <AuthContext.Provider value={{ loginGoogle, loading, user, users }}>
+        <AuthContext.Provider value={{ loginGoogle, loading, user, users, messageUserUnic, setMessageUserUnic }}>
             {props.children}
         </AuthContext.Provider>
     )

@@ -7,7 +7,7 @@ import useAuth from '../../service/hook/useAuth'
 import styles from './TopBar.module.css'
 
 export default function ButtonAppBar() {
-  const { user, loginGoogle } = useAuth()
+  const { user, loginGoogle, messageUserUnic } = useAuth()
 
   function logout() {
     Cookie.remove('Admin-cookie-social-chat')
@@ -31,7 +31,7 @@ export default function ButtonAppBar() {
           Foto
         </div>
         <div>
-          Nome da pessoa
+          {messageUserUnic}
         </div>
         <div>
           País da pessoa
