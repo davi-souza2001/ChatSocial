@@ -7,15 +7,22 @@ export default function index() {
     const { users } = useAuth()
 
     console.log(users)
-    
+
     return (
         <div className={styles.contentGeral}>
             <div className={styles.contentInput}>
                 <input type="text" />
             </div>
             <div className={styles.contentUserMessage} >
-                <BoxMessage name={'Geral'}/>
+                <BoxMessage name={'Geral'} />
             </div>
+            {users?.map((user: any) => {
+                return (
+                    <div key={user.id} className={styles.contentUserMessage} >
+                        <BoxMessage name={user.name} img={user.photo}/>
+                    </div>
+                )
+            })}
         </div>
     )
 }
