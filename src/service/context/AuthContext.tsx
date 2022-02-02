@@ -11,7 +11,7 @@ interface AuthContextProps {
     loginGoogle?: () => Promise<void>;
     user?: User;
     getIfUserExists?: Function;
-    users?: Array<any>
+    users?: Array<Object>
 }
 
 const AuthContext = createContext<AuthContextProps>({})
