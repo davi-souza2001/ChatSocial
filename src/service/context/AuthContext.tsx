@@ -5,18 +5,21 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { auth, database, ref, get, set, child, onValue } from '../../firebase/config'
 import Cookie from 'js-cookie'
 import User from "../../models/User"
+import UserMessage from '../../models/UserMessage'
+import ChatType from '../../models/ChatType'
 
 interface AuthContextProps {
     loading?: boolean;
     loginGoogle?: () => Promise<void>;
     user?: User;
     getIfUserExists?: Function;
+    createChat: Function;
     users?: Array<Object>;
     messageUserUnic?: any;
     setMessageUserUnic?: any;
 }
 
-const AuthContext = createContext<AuthContextProps>({})
+const AuthContext = createContext<AuthContextProps>({createChat})
 
 const provider = new GoogleAuthProvider()
 
@@ -41,6 +44,22 @@ async function setUserInDataBase(user: User) {
                 id: user.id
             })
             setCookieIdUser(user)
+        }
+    }).catch((error: any) => {
+        console.error(error);
+    })
+}
+
+async function createChat(handleChat: ChatType) {
+    const dbRef = ref(database)
+    get(child(dbRef, `chat/${handleChat?.name}`)).then((snapshot: any) => {
+        if (snapshot.exists()) {
+            console.log('Já tem'+ snapshot.val())
+        } else {
+            set(ref(database, 'chat/' + handleChat.name), {
+                id: Math.random(),
+                name: handleChat.name
+            })
         }
     }).catch((error: any) => {
         console.error(error);
@@ -117,7 +136,7 @@ export function AuthProvider(props: any) {
     }, [])
 
     return (
-        <AuthContext.Provider value={{ loginGoogle, loading, user, users, messageUserUnic, setMessageUserUnic }}>
+        <AuthContext.Provider value={{ loginGoogle, loading, user, users, messageUserUnic, setMessageUserUnic, createChat }}>
             {props.children}
         </AuthContext.Provider>
     )

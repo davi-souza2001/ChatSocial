@@ -4,7 +4,7 @@ import BoxMessage from '../BoxMessage'
 import styles from './ListMessage.module.css'
 
 export default function index() {
-    const { users, setMessageUserUnic } = useAuth()
+    const { users, messageUserUnic, setMessageUserUnic, createChat } = useAuth()
 
     console.log(users)
 
@@ -13,7 +13,10 @@ export default function index() {
             <div className={styles.contentInput}>
                 <input type="text" />
             </div>
-            <div className={styles.contentUserMessage} onClick={() => setMessageUserUnic({name: 'Geral'})}>
+            <div className={styles.contentUserMessage} onClick={() => {
+                setMessageUserUnic({name: 'Geral'})
+                createChat(messageUserUnic)
+            }}>
                 <BoxMessage name={'Geral'} />
             </div>
             {users?.map((user: any) => {
