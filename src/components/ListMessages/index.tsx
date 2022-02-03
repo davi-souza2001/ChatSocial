@@ -1,10 +1,12 @@
 import useAuth from '../../service/hook/useAuth'
+import useChat from '../../service/hook/useChat'
 import BoxMessage from '../BoxMessage'
 
 import styles from './ListMessage.module.css'
 
 export default function index() {
-    const { users, messageUserUnic, setMessageUserUnic, createChat } = useAuth()
+    const { users, messageUserUnic, setMessageUserUnic} = useAuth()
+    const { createChat } = useChat()
 
     console.log(users)
 
