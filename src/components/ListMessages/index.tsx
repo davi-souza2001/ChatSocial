@@ -13,12 +13,12 @@ export default function index() {
             <div className={styles.contentInput}>
                 <input type="text" />
             </div>
-            <div className={styles.contentUserMessage} onClick={() => setMessageUserUnic('Geral')}>
+            <div className={styles.contentUserMessage} onClick={() => setMessageUserUnic({name: 'Geral'})}>
                 <BoxMessage name={'Geral'} />
             </div>
             {users?.map((user: any) => {
                 return (
-                    <div key={user.id} className={styles.contentUserMessage} onClick={() => setMessageUserUnic(user.name)} >
+                    <div key={user.id} className={styles.contentUserMessage} onClick={() => setMessageUserUnic(user)} >
                         <BoxMessage name={user.name} img={user.photo}/>
                     </div>
                 )

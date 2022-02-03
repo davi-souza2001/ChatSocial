@@ -23,18 +23,18 @@ export default function ButtonAppBar() {
           </div>
         )}
         <div className={styles.boxContent}>
-          {user?.name ? <h4  onClick={logout}>{user.name}</h4> : <h2 onClick={loginGoogle}>Logar</h2>}
+          {user?.name ? <h4 onClick={logout}>{user.name}</h4> : <h2 onClick={loginGoogle}>Logar</h2>}
         </div>
       </div>
       <div className={styles.contentNameUserMessage}>
         <div>
-          Foto
+          {messageUserUnic.photo ? <Image src={messageUserUnic.photo} width={50} height={50} /> : ''}
         </div>
         <div>
-          {messageUserUnic}
+          {messageUserUnic?.name}
         </div>
         <div>
-          País da pessoa
+          Online
         </div>
       </div>
     </div>

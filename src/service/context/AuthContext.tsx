@@ -12,7 +12,7 @@ interface AuthContextProps {
     user?: User;
     getIfUserExists?: Function;
     users?: Array<Object>;
-    messageUserUnic?: String;
+    messageUserUnic?: any;
     setMessageUserUnic?: any;
 }
 
@@ -53,7 +53,7 @@ export function AuthProvider(props: any) {
         id: '', email: '', name: '', photo: ''
     })
     const [users, setUsers]: Array<any> = useState([])
-    const [messageUserUnic, setMessageUserUnic] = useState('Geral')
+    const [messageUserUnic, setMessageUserUnic] = useState({name: 'Geral'})
     const token = Cookie.get('Admin-cookie-social-chat')
 
     async function loginGoogle() {
