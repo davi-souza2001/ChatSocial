@@ -4,6 +4,8 @@ import { auth, database, ref, get, set, child, } from '../../firebase/config'
 
 interface AuthContextProps {
     createChat: Function;
+    messageUserUnic?: any;
+    setMessageUserUnic?: any;
 }
 
 const AuthContext = createContext<AuthContextProps>({createChat})
@@ -25,9 +27,11 @@ async function createChat(handleChat: any) {
 }
 
 export function ChatProvider(props: any) {
+    const [messageUserUnic, setMessageUserUnic] = useState({name: 'Geral'})
+
 
     return (
-        <AuthContext.Provider value={{ createChat }}>
+        <AuthContext.Provider value={{ createChat, messageUserUnic, setMessageUserUnic  }}>
             {props.children}
         </AuthContext.Provider>
     )

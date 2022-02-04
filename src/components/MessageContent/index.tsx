@@ -1,12 +1,16 @@
+import useChat from '../../service/hook/useChat'
 import styles from './MessageContent.module.css'
 
 export default function index() {
+
+  const { messageUserUnic } = useChat()
+
     return (
         <div className={styles.contentGeral}>
             <div className={styles.contentMessages}>
                 <div className={styles.contentMessagesUnicUserSelf}>
                     <div className={styles.messageOutUser}>
-                        <p>Ola</p>
+                        <p>{messageUserUnic?.name}</p>
                     </div>
                 </div>
                 <div className={styles.contentMessagesUnicUserSelf}>

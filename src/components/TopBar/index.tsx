@@ -5,9 +5,11 @@ import Cookie from 'js-cookie'
 import useAuth from '../../service/hook/useAuth'
 
 import styles from './TopBar.module.scss'
+import useChat from '../../service/hook/useChat';
 
 export default function ButtonAppBar() {
-  const { user, loginGoogle, messageUserUnic } = useAuth()
+  const { user, loginGoogle } = useAuth()
+  const { messageUserUnic } = useChat()
 
   function logout() {
     Cookie.remove('Admin-cookie-social-chat')

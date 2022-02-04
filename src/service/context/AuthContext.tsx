@@ -13,8 +13,6 @@ interface AuthContextProps {
     user?: User;
     getIfUserExists?: Function;
     users?: Array<Object>;
-    messageUserUnic?: any;
-    setMessageUserUnic?: any;
 }
 
 const AuthContext = createContext<AuthContextProps>({})
@@ -48,29 +46,12 @@ async function setUserInDataBase(user: User) {
     })
 }
 
-async function createChat(handleChat: any) {
-    const dbRef = ref(database)
-    get(child(dbRef, `chat/${handleChat?.name}`)).then((snapshot: any) => {
-        if (snapshot.exists()) {
-            console.log('Já tem'+ snapshot.val())
-        } else {
-            set(ref(database, 'chat/' + handleChat.name), {
-                id: Math.random(),
-                name: handleChat.name
-            })
-        }
-    }).catch((error: any) => {
-        console.error(error);
-    })
-}
-
 export function AuthProvider(props: any) {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState<User>({
         id: '', email: '', name: '', photo: ''
     })
     const [users, setUsers]: Array<any> = useState([])
-    const [messageUserUnic, setMessageUserUnic] = useState({name: 'Geral'})
     const token = Cookie.get('Admin-cookie-social-chat')
 
     async function loginGoogle() {
@@ -134,7 +115,7 @@ export function AuthProvider(props: any) {
     }, [])
 
     return (
-        <AuthContext.Provider value={{ loginGoogle, loading, user, users, messageUserUnic, setMessageUserUnic }}>
+        <AuthContext.Provider value={{ loginGoogle, loading, user, users,}}>
             {props.children}
         </AuthContext.Provider>
     )
