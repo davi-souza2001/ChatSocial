@@ -1,0 +1,43 @@
+.topBar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(30, 60, 90, 0.1);
+  .userInfo {
+    padding: 10px 0;
+    border-right: 1px solid rgba(30, 60, 90, 0.1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1;
+    img {
+      border-radius: 50%;
+    }
+    h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+  .nseioqbotar {
+    padding: 10px 0;
+    border-left: 1px solid rgba(30, 60, 90, 0.1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex: 3;
+    h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
+}

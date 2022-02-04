@@ -17,31 +17,26 @@ export default function ButtonAppBar() {
   }
 
   return (
-    <div>
-      <div>
-        {user?.photo && (
-          <div>
-            <Image src={user.photo} width={100} height={100} />
-          </div>
+    <div className={styles.topBar}>
+      <div className={styles.userInfo}>
+        {user?.photo && <Image src={user.photo} width={75} height={75} />}
+        {user?.name ? (
+          <h1 onClick={logout}>{user.name}</h1>
+        ) : (
+          <h2 onClick={loginGoogle}>Logar</h2>
         )}
-        <div>
-          {user?.name ? (
-            <h4 onClick={logout}>{user.name}</h4>
-          ) : (
-            <h2 onClick={loginGoogle}>Logar</h2>
-          )}
-        </div>
       </div>
-      <div>
-        <div>
+
+      <div className={styles.nseioqbotar}>
+        {/* <div style={{ border: '1px solid red' }}> N SEI OQ É ISSO MAS SIMPLESMENTE TA INVISIVEL
           {messageUserUnic.photo ? (
             <Image src={messageUserUnic.photo} width={50} height={50} />
           ) : (
             ''
           )}
-        </div>
-        <div>{messageUserUnic?.name}</div>
-        <div>Online</div>
+        </div> */}
+        <h1>{messageUserUnic?.name}</h1>
+        <h2>Online</h2>
       </div>
     </div>
   );

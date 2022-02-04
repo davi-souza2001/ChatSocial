@@ -5,11 +5,36 @@ export default function index() {
   const { messageUserUnic } = useChat();
 
   return (
-    <div className={styles.contentGeral}>
-      <div className={styles.contentMessages}>
-        <div className={styles.contentMessagesUnicUserSelf}>
-          <div className={styles.messageOutUser}>
+    <div>
+      <div>
+        <div>
+          <div>
             <p>{messageUserUnic?.name}</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>Olassd sadsad sadsad sa asdsadsa</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>Olassd sadsad sadsad sa asdsadsa</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>Olassd sadsad sadsad sa asdsadsa</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>Olassd sadsad sadsad sa asdsadsa</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>Olassd sadsad sadsad sa asdsadsa</p>
           </div>
         </div>
         <div>
