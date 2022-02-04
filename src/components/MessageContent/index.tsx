@@ -1,4 +1,4 @@
-import styles from './MessageContent.module.css'
+import styles from './MessageContent.module.scss'
 
 export default function index() {
     return (

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Eu from '../../../public/pp.jpg'
 
-import styles from './BoxMessage.module.css'
+import styles from './BoxMessage.module.scss'
 
 interface BoxProps{
     img?: string ;
