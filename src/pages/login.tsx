@@ -1,17 +1,15 @@
-import useAuth from '../service/hook/useAuth'
-import styles from '../styles/Login.module.css'
+import useAuth from '../service/hook/useAuth';
 
-export default function login(){
+export default function login() {
+  const { loginGoogle } = useAuth();
 
-    const { loginGoogle } = useAuth()
-
-    return (
-        <div className={styles.contentGeral}>
-            <div className={styles.contentLogin}>
-                <div className={styles.login} onClick={loginGoogle}>
-                    <h2>Login</h2>
-                </div>
-            </div>
+  return (
+    <div>
+      <div>
+        <div onClick={loginGoogle}>
+          <h2>Login</h2>
         </div>
-    )
+      </div>
+    </div>
+  );
 }
