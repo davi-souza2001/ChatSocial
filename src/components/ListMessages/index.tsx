@@ -9,7 +9,7 @@ export default function index() {
   const { createChat, messageUserUnic, setMessageUserUnic } = useChat();
 
   return (
-    <div>
+    <div style={{ border: '1px solid red' }} className={styles.users}>
       <div>
         <input type="text" />
       </div>

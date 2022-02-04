@@ -10,7 +10,7 @@ interface BoxProps {
 
 export default function index(props: BoxProps) {
   return (
-    <div>
+    <div >
       <div>
         <Image src={props.img || Eu} width={40} height={40} />
       </div>

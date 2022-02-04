@@ -5,7 +5,7 @@ export default function index() {
   const { messageUserUnic } = useChat();
 
   return (
-    <div>
+    <div className={styles.chat}>
       <div>
         <div>
           <div>
