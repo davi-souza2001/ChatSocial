@@ -26,15 +26,12 @@ export default function ButtonAppBar() {
           <h2 onClick={loginGoogle}>Logar</h2>
         )}
       </div>
-
       <div className={styles.nseioqbotar}>
-        <div style={{ border: '1px solid red' }}> 
-          {messageUserUnic.photo ? (
-            <Image src={messageUserUnic.photo} width={50} height={50} />
-          ) : (
-            ''
-          )}
-        </div>
+        {messageUserUnic.name === 'Geral'
+          ? null
+          : messageUserUnic.photo && (
+              <Image src={messageUserUnic.photo} width={50} height={50} />
+            )}
         <h1>{messageUserUnic?.name}</h1>
         <h2>Online</h2>
       </div>

@@ -5,6 +5,7 @@
   width: 100%;
   box-shadow: 0 2px 4px rgba(30, 60, 90, 0.1);
   height: 10vh;
+  background-color: #17222d;
   .userInfo {
     padding: 10px 0;
     border-right: 1px solid rgba(30, 60, 90, 0.1);
@@ -19,6 +20,7 @@
     h1 {
       font-size: 1.2rem;
       font-weight: 600;
+      color: #fff;
     }
     h2 {
       font-size: 1.2rem;
@@ -35,10 +37,12 @@
     h1 {
       font-size: 1.2rem;
       font-weight: 600;
+      color: #fff;
     }
     h2 {
       font-size: 1.2rem;
       font-weight: 600;
+      color: #fff;
     }
   }
 }
