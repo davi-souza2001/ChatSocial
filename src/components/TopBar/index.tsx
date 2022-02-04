@@ -4,7 +4,7 @@ import Cookie from 'js-cookie'
 
 import useAuth from '../../service/hook/useAuth'
 
-import styles from './TopBar.module.css'
+import styles from './TopBar.module.scss'
 
 export default function ButtonAppBar() {
   const { user, loginGoogle, messageUserUnic } = useAuth()
