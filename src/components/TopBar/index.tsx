@@ -28,13 +28,13 @@ export default function ButtonAppBar() {
       </div>
 
       <div className={styles.nseioqbotar}>
-        {/* <div style={{ border: '1px solid red' }}> N SEI OQ É ISSO MAS SIMPLESMENTE TA INVISIVEL
+        <div style={{ border: '1px solid red' }}> 
           {messageUserUnic.photo ? (
             <Image src={messageUserUnic.photo} width={50} height={50} />
           ) : (
             ''
           )}
-        </div> */}
+        </div>
         <h1>{messageUserUnic?.name}</h1>
         <h2>Online</h2>
       </div>
