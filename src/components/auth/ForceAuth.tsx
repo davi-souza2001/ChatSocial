@@ -1,10 +1,10 @@
 import Image from "next/image";
-import route from "next/router";
+import router from "next/router";
 import useAuth from "../../service/hook/useAuth";
 
 export default function ForceAuthentication(props: any) {
 
-    const { user } = useAuth();
+    const { user, loading } = useAuth()
 
     function renderContent() {
         return (
@@ -16,16 +16,18 @@ export default function ForceAuthentication(props: any) {
 
     function renderLoading() {
         return (
-            <div > 
+            <div >
                 <h1>Carregando</h1>
             </div>
         )
     }
 
-    if(user?.email) {
+    if (!loading && user?.email) {
         return renderContent();
-    }else{
-        route.push('/login');
+    } else if (loading) {
+        return renderLoading();
+    } else {
+        console.log('aqui')
         return null;
     }
 }

@@ -47,7 +47,7 @@ async function setUserInDataBase(user: User) {
 }
 
 export function AuthProvider(props: any) {
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [user, setUser] = useState<User>({
         id: '', email: '', name: '', photo: ''
     })
@@ -55,6 +55,7 @@ export function AuthProvider(props: any) {
     const token = Cookie.get('Admin-cookie-social-chat')
 
     async function loginGoogle() {
+        setLoading(true)
         await signInWithPopup(auth, provider).then((result) => {
             const user = result.user
             const userFinal: User = {
@@ -115,7 +116,7 @@ export function AuthProvider(props: any) {
     }, [])
 
     return (
-        <AuthContext.Provider value={{ loginGoogle, loading, user, users,}}>
+        <AuthContext.Provider value={{ loginGoogle, loading, user, users }}>
             {props.children}
         </AuthContext.Provider>
     )
