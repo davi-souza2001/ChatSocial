@@ -3,16 +3,10 @@ import useChat from '../../service/hook/useChat';
 import styles from './MessageContent.module.scss';
 
 export default function index() {
-  const { messageUserUnic, messages } = useChat()
-  const [messageSend, setMessageSend] = useState('')
+  const { messageUserUnic, messages, handleSendMensageUser, messageSend, setMessageSend } = useChat()
 
   console.log('messages')
   console.log(messageSend)
-  
-  const handleSubmit= (event: any) => {
-    event.preventDefault()
-    console.log('enviar texto')
-  }
 
   return (
     <div className={styles.chat}>
@@ -57,7 +51,8 @@ export default function index() {
       <div>
         <i className="fas fa-plus"></i>
         <input type="text" onChange={(e) => setMessageSend(e.target.value)}/>
-        <i className="far fa-paper-plane" onClick={handleSubmit}></i> 
+        <div onClick={() => handleSendMensageUser} style={{cursor: 'pointer'}}>ENVIARR</div>
+        <i className="far fa-paper-plane" ></i> 
       </div>
     </div>
   );

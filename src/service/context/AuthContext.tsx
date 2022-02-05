@@ -90,7 +90,6 @@ export function AuthProvider(props: any) {
 
   async function searchUserInformation(userToken: String) {
     const dbRef = ref(database);
-    let test;
     get(child(dbRef, `/users/${userToken}`))
       .then((res) => {
         if (res.exists()) {

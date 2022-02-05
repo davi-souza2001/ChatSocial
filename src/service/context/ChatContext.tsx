@@ -1,19 +1,40 @@
 import { createContext, useEffect, useState } from 'react';
 
 import { auth, database, ref, get, set, child } from '../../firebase/config';
+import useAuth from '../hook/useAuth';
 
 interface AuthContextProps {
   handleIfExistsChat?: Function;
+  handleSendMensageUser?: Function;
   messages?: Object[]
   messageUserUnic?: any;
   setMessageUserUnic?: any;
+  messageSend?: String
+  setMessageSend?: any;
 }
 
 const AuthContext = createContext<AuthContextProps>({});
 
 export function ChatProvider(props: any) {
-  const [messageUserUnic, setMessageUserUnic] = useState({ name: 'Geral' });
+  const { user } = useAuth()
+  const [messageUserUnic, setMessageUserUnic] = useState({ name: 'Geral' })
   const [messages, setMessages] = useState<Object[]>([])
+  const [messageSend, setMessageSend] = useState('')
+
+  async function handleSendMensageUser() {
+    const dbRef = ref(database)
+    get(child(dbRef, `chat/${messageUserUnic.name}`))
+      .then((snapshot: any) => {
+        set(ref(database, `chat/${messageUserUnic.name}` + user?.email), {
+          mensage: messageSend,
+          userSend: user?.email,
+        });
+        console.log('ENVIIADO')
+      })
+      .catch((error: any) => {
+        console.error(error);
+      });
+  }
 
   async function handleIfExistsChat() {
     const dbRef = ref(database);
@@ -43,7 +64,15 @@ export function ChatProvider(props: any) {
 
   return (
     <AuthContext.Provider
-      value={{ handleIfExistsChat, messageUserUnic, setMessageUserUnic, messages }}
+      value={{
+        handleIfExistsChat,
+        handleSendMensageUser,
+        messageUserUnic,
+        setMessageUserUnic,
+        messages,
+        messageSend,
+        setMessageSend
+      }}
     >
       {props.children}
     </AuthContext.Provider>
