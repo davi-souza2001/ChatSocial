@@ -10,45 +10,45 @@ export default function index() {
 
   return (
     <div className={styles.chat}>
-      <div className="container">
-        <div className="textLeft">
-            <p>sexo? 08:00</p>
+      <div className={styles.containerText}>
+        <div className={styles.textLeft}>
+          <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 08:00</p>
         </div>
-        <div className="textRight">
-            <p>sexo? 08:02</p>
+        <div className={styles.textRight}>
+          <p>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb 08:02</p>
         </div>
-        <div className="textLeft">
-            <p>sexo? 08:00</p>
+        <div className={styles.textLeft}>
+          <p>sexo? 08:00</p>
         </div>
-        <div className="textRight">
-            <p>sexo? 08:02</p>
+        <div className={styles.textRight}>
+          <p>sexo? 08:02</p>
         </div>
-        <div className="textLeft">
-            <p>sexo? 08:00</p>
+        <div className={styles.textLeft}>
+          <p>sexo? 08:00</p>
         </div>
-        <div className="textRight">
-            <p>sexo? 08:02</p>
+        <div className={styles.textRight}>
+          <p>sexo? 08:02</p>
         </div>
-        <div className="textLeft">
-            <p>sexo? 08:00</p>
+        <div className={styles.textLeft}>
+          <p>sexo? 08:00</p>
         </div>
-        <div className="textRight">
-            <p>sexo? 08:02</p>
+        <div className={styles.textRight}>
+          <p>sexo? 08:02</p>
         </div>
-        <div className="textLeft">
-            <p>sexo? 08:00</p>
+        <div className={styles.textLeft}>
+          <p>sexo? 08:00</p>
         </div>
-        <div className="textRight">
-            <p>sexo? 08:02</p>
+        <div className={styles.textRight}>
+          <p>sexo? 08:02</p>
         </div>
-        <div className="textLeft">
-            <p>sexo? 08:00</p>
+        <div className={styles.textLeft}>
+          <p>sexo? 08:00</p>
         </div>
-        <div className="textRight">
-            <p>sexo? 08:02</p>
+        <div className={styles.textRight}>
+          <p>sexo? 08:02</p>
         </div>
       </div>
-      <div>
+      <div className={styles.input}>
         <i className="fas fa-plus"></i>
         <input type="text" onChange={(e) => setMessageSend(e.target.value)}/>
         <div onClick={() => handleSendMensageUser} style={{cursor: 'pointer'}}>ENVIARR</div>
