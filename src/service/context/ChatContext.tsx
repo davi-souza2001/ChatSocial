@@ -4,8 +4,7 @@ import { auth, database, ref, get, set, child } from '../../firebase/config';
 import useAuth from '../hook/useAuth';
 
 interface AuthContextProps {
-  handleIfExistsChat?: Function;
-  handleSendMensageUser?: Function;
+  checkChatExists?: Function;
   messages?: Object[]
   messageUserUnic?: any;
   setMessageUserUnic?: any;
@@ -21,22 +20,8 @@ export function ChatProvider(props: any) {
   const [messages, setMessages] = useState<Object[]>([])
   const [messageSend, setMessageSend] = useState('')
 
-  async function handleSendMensageUser() {
-    const dbRef = ref(database)
-    get(child(dbRef, `chat/${messageUserUnic.name}`))
-      .then((snapshot: any) => {
-        set(ref(database, `chat/${messageUserUnic.name}` + user?.email), {
-          mensage: messageSend,
-          userSend: user?.email,
-        });
-        console.log('ENVIIADO')
-      })
-      .catch((error: any) => {
-        console.error(error);
-      });
-  }
 
-  async function handleIfExistsChat() {
+  async function checkChatExists() {
     const dbRef = ref(database);
     get(child(dbRef, `/chat/${messageUserUnic.name}`))
       .then(async (snapshot) => {
@@ -47,7 +32,6 @@ export function ChatProvider(props: any) {
           // for (let id in allUMessages) {
           //   messageList.push({ id, ...allUMessages[id] });
           // }
-
           setMessages(allUMessages)
         } else {
           console.log('Não tem nada');
@@ -59,14 +43,13 @@ export function ChatProvider(props: any) {
   }
 
   useEffect(() => {
-    handleIfExistsChat()
+    checkChatExists()
   }, [messageUserUnic])
 
   return (
     <AuthContext.Provider
       value={{
-        handleIfExistsChat,
-        handleSendMensageUser,
+        checkChatExists,
         messageUserUnic,
         setMessageUserUnic,
         messages,
