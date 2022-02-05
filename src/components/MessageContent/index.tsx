@@ -1,12 +1,8 @@
-import { useState } from 'react';
 import useChat from '../../service/hook/useChat';
 import styles from './MessageContent.module.scss';
 
 export default function index() {
-  const { sendMensage, messageSend, setMessageSend } = useChat()
-
-  console.log('messages')
-  console.log(messageSend)
+  const { sendMensage, setMessageSend } = useChat()
 
   return (
     <div className={styles.chat}>
