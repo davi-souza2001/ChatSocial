@@ -5,6 +5,7 @@ import useAuth from '../hook/useAuth';
 
 interface AuthContextProps {
   checkChatExists?: Function;
+  sendMensage?: any;
   messages?: Object[]
   messageUserUnic?: any;
   setMessageUserUnic?: any;
@@ -19,7 +20,16 @@ export function ChatProvider(props: any) {
   const [messageUserUnic, setMessageUserUnic] = useState({ name: 'Geral' })
   const [messages, setMessages] = useState<Object[]>([])
   const [messageSend, setMessageSend] = useState('')
+  const unicId = Math.floor(Date.now() * Math.random()).toString(36)
 
+  function sendMensage(){
+    const db = database
+    set(ref(db, `chat/${messageUserUnic.name}/` + unicId), {
+      mensage: messageSend,
+      userSend: user?.email
+    })
+    console.log('enviado')
+  }
 
   async function checkChatExists() {
     const dbRef = ref(database);
@@ -52,6 +62,7 @@ export function ChatProvider(props: any) {
         checkChatExists,
         messageUserUnic,
         setMessageUserUnic,
+        sendMensage,
         messages,
         messageSend,
         setMessageSend

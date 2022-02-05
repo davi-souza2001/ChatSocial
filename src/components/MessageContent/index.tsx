@@ -3,7 +3,7 @@ import useChat from '../../service/hook/useChat';
 import styles from './MessageContent.module.scss';
 
 export default function index() {
-  const { messageUserUnic, messages, messageSend, setMessageSend } = useChat()
+  const { sendMensage, messageSend, setMessageSend } = useChat()
 
   console.log('messages')
   console.log(messageSend)
@@ -51,6 +51,7 @@ export default function index() {
       <div className={styles.input}>
         <i className="fas fa-plus"></i>
         <input type="text" onChange={(e) => setMessageSend(e.target.value)}/>
+        <div onClick={sendMensage}><h2>ENVIAAAA</h2></div>
         <i className="far fa-paper-plane" ></i> 
       </div>
     </div>
