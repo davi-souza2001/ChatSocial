@@ -4,58 +4,58 @@ import styles from './MessageContent.module.scss';
 export default function index() {
   const { messageUserUnic, messages } = useChat();
 
-  console.log('messages')
-  console.log(messages)
-  
-  const handleSubmit= (event: any) => {
-    event.preventDefault()
-    console.log('enviar texto')
-  }
+  console.log('messages');
+  console.log(messages);
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    console.log('enviar texto');
+  };
 
   return (
     <div className={styles.chat}>
-      <div className="container">
-        <div className="textLeft">
-            <p>sexo? 08:00</p>
+      <div className={styles.containerText}>
+        <div className={styles.textLeft}>
+          <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 08:00</p>
         </div>
-        <div className="textRight">
-            <p>sexo? 08:02</p>
+        <div className={styles.textRight}>
+          <p>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb 08:02</p>
         </div>
-        <div className="textLeft">
-            <p>sexo? 08:00</p>
+        <div className={styles.textLeft}>
+          <p>sexo? 08:00</p>
         </div>
-        <div className="textRight">
-            <p>sexo? 08:02</p>
+        <div className={styles.textRight}>
+          <p>sexo? 08:02</p>
         </div>
-        <div className="textLeft">
-            <p>sexo? 08:00</p>
+        <div className={styles.textLeft}>
+          <p>sexo? 08:00</p>
         </div>
-        <div className="textRight">
-            <p>sexo? 08:02</p>
+        <div className={styles.textRight}>
+          <p>sexo? 08:02</p>
         </div>
-        <div className="textLeft">
-            <p>sexo? 08:00</p>
+        <div className={styles.textLeft}>
+          <p>sexo? 08:00</p>
         </div>
-        <div className="textRight">
-            <p>sexo? 08:02</p>
+        <div className={styles.textRight}>
+          <p>sexo? 08:02</p>
         </div>
-        <div className="textLeft">
-            <p>sexo? 08:00</p>
+        <div className={styles.textLeft}>
+          <p>sexo? 08:00</p>
         </div>
-        <div className="textRight">
-            <p>sexo? 08:02</p>
+        <div className={styles.textRight}>
+          <p>sexo? 08:02</p>
         </div>
-        <div className="textLeft">
-            <p>sexo? 08:00</p>
+        <div className={styles.textLeft}>
+          <p>sexo? 08:00</p>
         </div>
-        <div className="textRight">
-            <p>sexo? 08:02</p>
+        <div className={styles.textRight}>
+          <p>sexo? 08:02</p>
         </div>
       </div>
-      <div>
+      <div className={styles.input}>
         <i className="fas fa-plus"></i>
         <input type="text" />
-        <i className="far fa-paper-plane" onClick={handleSubmit}></i> 
+        <i className="far fa-paper-plane" onClick={handleSubmit}></i>
       </div>
     </div>
   );
