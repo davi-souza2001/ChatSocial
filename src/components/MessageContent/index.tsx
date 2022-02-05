@@ -1,11 +1,13 @@
+import { useState } from 'react';
 import useChat from '../../service/hook/useChat';
 import styles from './MessageContent.module.scss';
 
 export default function index() {
-  const { messageUserUnic, messages } = useChat();
+  const { messageUserUnic, messages } = useChat()
+  const [messageSend, setMessageSend] = useState('')
 
   console.log('messages')
-  console.log(messages)
+  console.log(messageSend)
   
   const handleSubmit= (event: any) => {
     event.preventDefault()
@@ -54,7 +56,7 @@ export default function index() {
       </div>
       <div>
         <i className="fas fa-plus"></i>
-        <input type="text" />
+        <input type="text" onChange={(e) => setMessageSend(e.target.value)}/>
         <i className="far fa-paper-plane" onClick={handleSubmit}></i> 
       </div>
     </div>
