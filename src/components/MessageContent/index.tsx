@@ -2,50 +2,60 @@ import useChat from '../../service/hook/useChat';
 import styles from './MessageContent.module.scss';
 
 export default function index() {
-  const { messageUserUnic } = useChat();
+  const { messageUserUnic, messages } = useChat();
+
+  console.log('messages')
+  console.log(messages)
+  
+  const handleSubmit= (event: any) => {
+    event.preventDefault()
+    console.log('enviar texto')
+  }
 
   return (
     <div className={styles.chat}>
-      <div>
-        <div>
-          <div>
-            <p>{messageUserUnic?.name}</p>
-          </div>
+      <div className="container">
+        <div className="textLeft">
+            <p>sexo? 08:00</p>
         </div>
-        <div>
-          <div>
-            <p>Olassd sadsad sadsad sa asdsadsa</p>
-          </div>
+        <div className="textRight">
+            <p>sexo? 08:02</p>
         </div>
-        <div>
-          <div>
-            <p>Olassd sadsad sadsad sa asdsadsa</p>
-          </div>
+        <div className="textLeft">
+            <p>sexo? 08:00</p>
         </div>
-        <div>
-          <div>
-            <p>Olassd sadsad sadsad sa asdsadsa</p>
-          </div>
+        <div className="textRight">
+            <p>sexo? 08:02</p>
         </div>
-        <div>
-          <div>
-            <p>Olassd sadsad sadsad sa asdsadsa</p>
-          </div>
+        <div className="textLeft">
+            <p>sexo? 08:00</p>
         </div>
-        <div>
-          <div>
-            <p>Olassd sadsad sadsad sa asdsadsa</p>
-          </div>
+        <div className="textRight">
+            <p>sexo? 08:02</p>
         </div>
-        <div>
-          <div>
-            <p>Olassd sadsad sadsad sa asdsadsa</p>
-          </div>
+        <div className="textLeft">
+            <p>sexo? 08:00</p>
+        </div>
+        <div className="textRight">
+            <p>sexo? 08:02</p>
+        </div>
+        <div className="textLeft">
+            <p>sexo? 08:00</p>
+        </div>
+        <div className="textRight">
+            <p>sexo? 08:02</p>
+        </div>
+        <div className="textLeft">
+            <p>sexo? 08:00</p>
+        </div>
+        <div className="textRight">
+            <p>sexo? 08:02</p>
         </div>
       </div>
       <div>
+        <i className="fas fa-plus"></i>
         <input type="text" />
-        <input type="submit" />
+        <i className="far fa-paper-plane" onClick={handleSubmit}></i> 
       </div>
     </div>
   );

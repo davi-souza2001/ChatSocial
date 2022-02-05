@@ -22,7 +22,7 @@ export default function ForceAuthentication(props: any) {
   } else if (loading) {
     return renderLoading();
   } else {
-    console.log('aqui');
+    // console.log('aqui');
     return null;
   }
 }

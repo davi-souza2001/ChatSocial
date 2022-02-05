@@ -6,19 +6,14 @@ import styles from './ListMessage.module.scss';
 
 export default function index() {
   const { users } = useAuth();
-  const { createChat, messageUserUnic, setMessageUserUnic } = useChat();
+  const { handleIfExistsChat, messageUserUnic, setMessageUserUnic } = useChat()
 
   return (
     <div style={{ border: '1px solid red' }} className={styles.users}>
       <div>
         <input type="text" />
       </div>
-      <div
-        onClick={() => {
-          setMessageUserUnic({ name: 'Geral' });
-          console.log(messageUserUnic);
-        }}
-      >
+      <div>
         <BoxMessage name={'Geral'} />
       </div>
       {users?.map((user: any) => {
@@ -27,7 +22,6 @@ export default function index() {
             key={user.id}
             onClick={() => {
               setMessageUserUnic(user);
-              console.log(messageUserUnic.name);
             }}
           >
             <BoxMessage name={user.name} img={user.photo} />

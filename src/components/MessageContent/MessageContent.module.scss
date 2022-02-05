@@ -1,4 +1,24 @@
 .chat {
-  border: 1px solid red;
   flex: 3;
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .textLeft{
+      align-self: flex-start;
+      justify-self: start;
+      p{
+        color: red;
+      }  
+    }
+    .textRight{
+      align-self: flex-end;
+      justify-self: end;
+      p{
+        color: red;
+      }
+    }
+  }
 }

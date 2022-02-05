@@ -1,39 +1,49 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 import { auth, database, ref, get, set, child } from '../../firebase/config';
 
 interface AuthContextProps {
-  createChat: Function;
+  handleIfExistsChat?: Function;
+  messages?: Object[]
   messageUserUnic?: any;
   setMessageUserUnic?: any;
 }
 
-const AuthContext = createContext<AuthContextProps>({ createChat });
-
-async function createChat(handleChat: any) {
-  const dbRef = ref(database);
-  get(child(dbRef, `chat/${handleChat?.name}`))
-    .then((snapshot: any) => {
-      if (snapshot.exists()) {
-        console.log('Já tem' + snapshot.val());
-      } else {
-        set(ref(database, 'chat/' + handleChat.name), {
-          id: Math.random(),
-          name: handleChat.name,
-        });
-      }
-    })
-    .catch((error: any) => {
-      console.error(error);
-    });
-}
+const AuthContext = createContext<AuthContextProps>({});
 
 export function ChatProvider(props: any) {
   const [messageUserUnic, setMessageUserUnic] = useState({ name: 'Geral' });
+  const [messages, setMessages] = useState<Object[]>([])
+
+  async function handleIfExistsChat() {
+    const dbRef = ref(database);
+    get(child(dbRef, `/chat/${messageUserUnic.name}`))
+      .then(async (snapshot) => {
+        if (snapshot.exists()) {
+          // console.log(snapshot.val())
+          const allUMessages = await snapshot.val();
+          // const messageList: Array<any> = [];
+          // for (let id in allUMessages) {
+          //   messageList.push({ id, ...allUMessages[id] });
+          // }
+
+          setMessages(allUMessages)
+        } else {
+          console.log('Não tem nada');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  useEffect(() => {
+    handleIfExistsChat()
+  }, [messageUserUnic])
 
   return (
     <AuthContext.Provider
-      value={{ createChat, messageUserUnic, setMessageUserUnic }}
+      value={{ handleIfExistsChat, messageUserUnic, setMessageUserUnic, messages }}
     >
       {props.children}
     </AuthContext.Provider>
