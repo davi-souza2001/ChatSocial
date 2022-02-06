@@ -4,7 +4,6 @@ import { auth, database, ref, get, set, child, onValue } from '../../firebase/co
 import useAuth from '../hook/useAuth';
 
 interface AuthContextProps {
-  checkChatExists?: Function;
   sendMensage?: any;
   messages?: Object[]
   messageUserUnic?: any;
@@ -33,21 +32,23 @@ export function ChatProvider(props: any) {
   async function checkChatExists() {
     const dbRef = database
     const starCountRef = ref(dbRef, 'chat/' + messageUserUnic.name)
-    onValue(starCountRef, (snapshot) => {
-      const data = snapshot.val()
-      console.log(snapshot.val())
+    onValue(starCountRef, async(snapshot) => {
+      const data = await snapshot.val()
+      const chatList = [];
+      for (let id in data) {
+        chatList.push({ id, ...data[id] });
+      }
+      setMessages(chatList);
     })
   }
 
   useEffect(() => {
     checkChatExists()
-    console.log(messageUserUnic.name)
   }, [messageUserUnic])
 
   return (
     <AuthContext.Provider
       value={{
-        checkChatExists,
         messageUserUnic,
         setMessageUserUnic,
         sendMensage,
