@@ -15,12 +15,14 @@ export default function index() {
       </div>
 
       <ul>
-        <li>
+        <li onClick={() => {
+          setMessageUserUnic({ name: 'Geral' });
+        }}>
           <BoxMessage name={'Geral'} />
         </li>
         {users?.map((user: any) => {
           return (
-            <li 
+            <li
               key={user.id}
               onClick={() => {
                 setMessageUserUnic(user);

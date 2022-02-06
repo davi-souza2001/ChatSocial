@@ -35,11 +35,13 @@ export function ChatProvider(props: any) {
     const starCountRef = ref(dbRef, 'chat/' + messageUserUnic.name)
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val()
+      console.log(snapshot.val())
     })
   }
 
   useEffect(() => {
     checkChatExists()
+    console.log(messageUserUnic.name)
   }, [messageUserUnic])
 
   return (
