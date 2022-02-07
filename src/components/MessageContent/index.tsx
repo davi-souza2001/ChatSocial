@@ -2,8 +2,6 @@ import UseAuth from '../../service/hook/useAuth';
 import UseChat from '../../service/hook/useChat';
 import styles from './MessageContent.module.scss';
 
-
-
 export default function index() {
   const { sendMensage, setMessageSend, messages } = UseChat()
   const { user } = UseAuth()
