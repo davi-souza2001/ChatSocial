@@ -9,8 +9,7 @@ export default function index() {
   return (
     <div className={styles.chat}>
       <div className={styles.containerText}>
-        
-        {messages?.map((msg: any) => {
+        {user?.email != '' && messages?.map((msg: any) => {
           return (
             <div className={msg.userSend == user?.email ? styles.textRight : styles.textLeft} key={msg.id}>
               <p>{msg.mensage}</p>
