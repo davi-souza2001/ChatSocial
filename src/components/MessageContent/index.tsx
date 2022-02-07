@@ -1,10 +1,10 @@
-import useChat from '../../service/hook/useChat';
+import UseChat from '../../service/hook/useChat';
 import styles from './MessageContent.module.scss';
 
 
 
 export default function index() {
-  const { sendMensage, setMessageSend, messages } = useChat()
+  const { sendMensage, setMessageSend, messages } = UseChat()
   console.log(messages)
 
   return (

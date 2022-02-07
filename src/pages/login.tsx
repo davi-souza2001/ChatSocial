@@ -1,7 +1,7 @@
-import useAuth from '../service/hook/useAuth';
+import UseAuth from '../service/hook/useAuth';
 
 export default function login() {
-  const { loginGoogle } = useAuth();
+  const { loginGoogle } = UseAuth();
 
   return (
     <div>

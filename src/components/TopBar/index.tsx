@@ -19,7 +19,7 @@ export default function ButtonAppBar() {
   return (
     <div className={styles.topBar}>
       <div className={styles.userInfo}>
-        {user?.photo && <Image src={user.photo} width={75} height={75} />}
+        {user?.photo && <Image src={user.photo} width={75} height={75} alt='Imagem da conversa geral' />}
         {user?.name ? (
           <h1 onClick={logout}>{user.name}</h1>
         ) : (
@@ -30,7 +30,7 @@ export default function ButtonAppBar() {
         {messageUserUnic.name === 'Geral'
           ? null
           : messageUserUnic.photo && (
-              <Image src={messageUserUnic.photo} width={50} height={50} />
+              <Image src={messageUserUnic.photo} width={50} height={50} alt={`Imagem do usuário ${messageUserUnic.name}` || 'Imagem do usuário'}/>
             )}
         <h1>{messageUserUnic?.name}</h1>
         <h2>Online</h2>

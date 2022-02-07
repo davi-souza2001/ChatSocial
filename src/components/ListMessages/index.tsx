@@ -1,12 +1,12 @@
-import useAuth from '../../service/hook/useAuth';
-import useChat from '../../service/hook/useChat';
+import UseAuth from '../../service/hook/useAuth';
+import UseChat from '../../service/hook/useChat';
 import BoxMessage from './BoxMessage';
 
 import styles from './ListMessage.module.scss';
 
 export default function index() {
-  const { users } = useAuth();
-  const { setMessageUserUnic } = useChat()
+  const { users } = UseAuth();
+  const { setMessageUserUnic } = UseChat()
 
   return (
     <div className={styles.users}>

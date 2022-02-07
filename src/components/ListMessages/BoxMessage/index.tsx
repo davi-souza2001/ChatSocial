@@ -11,7 +11,7 @@ interface BoxProps {
 export default function index(props: BoxProps) {
   return (
     <>
-      <Image src={props.img || Eu} width={40} height={40} />
+      <Image src={props.img || Eu} width={40} height={40} alt='Imagem usuário' />
       <h1>{props.name}</h1>
     </>
   );
