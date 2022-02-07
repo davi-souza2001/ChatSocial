@@ -22,17 +22,22 @@ export function ChatProvider(props: any) {
   const unicId = Math.floor(Date.now() * Math.random()).toString(36)
 
   function sendMensage() {
-    const db = database
-    set(ref(db, `chat/${messageUserUnic.name}/` + unicId), {
-      mensage: messageSend,
-      userSend: user?.email
-    })
+    if (user?.email != '') {
+      const db = database
+      set(ref(db, `chat/${messageUserUnic.name}/` + unicId), {
+        mensage: messageSend,
+        userSend: user?.email
+      })
+    } else {
+      alert('Faça login')
+    }
+
   }
 
   async function checkChatExists() {
     const dbRef = database
     const starCountRef = ref(dbRef, 'chat/' + messageUserUnic.name)
-    onValue(starCountRef, async(snapshot) => {
+    onValue(starCountRef, async (snapshot) => {
       const data = await snapshot.val()
       const chatList = [];
       for (let id in data) {
