@@ -5,7 +5,7 @@ import BoxMessage from './BoxMessage';
 import styles from './ListMessage.module.scss';
 
 export default function index() {
-  const { users } = UseAuth();
+  const { users, user } = UseAuth();
   const { setMessageUserUnic } = UseChat()
 
   return (
@@ -20,17 +20,19 @@ export default function index() {
         }}>
           <BoxMessage name={'Geral'} />
         </li>
-        {users?.map((user: any) => {
-          return (
-            <li
-              key={user.id}
-              onClick={() => {
-                setMessageUserUnic(user);
-              }}
-            >
-              <BoxMessage name={user.name} img={user.photo} />
-            </li>
-          );
+        {users?.map((userUni: any) => {
+          if (userUni.email != user?.email) {
+            return (
+              <li
+                key={userUni.id}
+                onClick={() => {
+                  setMessageUserUnic(userUni);
+                }}
+              >
+                <BoxMessage name={userUni.name} img={userUni.photo} />
+              </li>
+            );
+          }
         })}
       </ul>
     </div>

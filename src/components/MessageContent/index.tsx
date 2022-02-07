@@ -1,3 +1,4 @@
+import UseAuth from '../../service/hook/useAuth';
 import UseChat from '../../service/hook/useChat';
 import styles from './MessageContent.module.scss';
 
@@ -5,20 +6,15 @@ import styles from './MessageContent.module.scss';
 
 export default function index() {
   const { sendMensage, setMessageSend, messages } = UseChat()
-  console.log(messages)
+  const { user } = UseAuth()
 
   return (
     <div className={styles.chat}>
       <div className={styles.containerText}>
-        <div className={styles.textLeft}>
-          <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 08:00</p>
-        </div>
-        <div className={styles.textRight}>
-          <p>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb 08:02</p>
-        </div>
+        
         {messages?.map((msg: any) => {
           return (
-            <div className={styles.textLeft} key={msg.id}>
+            <div className={msg.userSend == user?.email ? styles.textRight : styles.textLeft} key={msg.id}>
               <p>{msg.mensage}</p>
             </div>
           )
