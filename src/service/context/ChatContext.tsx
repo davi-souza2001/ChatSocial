@@ -32,7 +32,7 @@ export function ChatProvider(props: any) {
   });
   const [messageSend, setMessageSend] = useState('');
   const [messages, setMessages] = useState<Object[]>([]);
-  const unicId = Math.floor(Date.now() * Math.random()).toString(36);
+  const unicId = new Date().getTime();
   const [menuMobile, setMenuMobile] = useState(false);
 
   function sendMensage() {
