@@ -29,14 +29,6 @@ export default function index() {
     }
   }
 
-  // {user?.email != '' && messageUserUnic.name === 'Geral' && messages?.map((msg: any) => {
-  //   return (
-  //     <div className={msg.userSend == user?.email ? styles.textRight : styles.textLeft} key={msg.id}>
-  //       <p>{msg.mensage}</p>
-  //     </div>
-  //   )
-  // })}
-
   return (
     <div className={styles.chat}>
       <div className={styles.containerText}>
