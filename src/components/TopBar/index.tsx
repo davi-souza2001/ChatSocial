@@ -1,3 +1,5 @@
+import React from 'react';
+
 import route from 'next/router';
 import Image from 'next/image';
 import Cookie from 'js-cookie';
@@ -6,6 +8,7 @@ import useAuth from '../../service/hook/useAuth';
 
 import styles from './TopBar.module.scss';
 import useChat from '../../service/hook/useChat';
+import { useState } from 'react';
 
 export default function ButtonAppBar() {
   const { user, loginGoogle } = useAuth();

@@ -6,56 +6,58 @@
   justify-content: start;
   min-height: 90vh;
   .containerText {
-    border: 1px solid red;
-    //   padding: 20px;
-    //   height: 80vh;
-    //   width: 50vw;
+    padding: 20px;
+    height: 80vh;
+    width: 50vw;
 
-    // display: flex;
-    // flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-    // overflow: scroll;
-    // overflow-x: hidden;
-    // &::-webkit-scrollbar {
-    //   width: 7.5px;
-    // }
-    // &::-webkit-scrollbar-track {
-    //   background: #fff;
-    // }
-    // &::-webkit-scrollbar-thumb {
-    //   background-color: #eee;
-    //   border-radius: 20px;
-    // }
-    // .textLeft {
-    //   align-self: flex-start;
-    //   max-width: 200px;
-    //   background-color: #414141;
-    //   border-radius: 5px;
-    //   padding: 10px;
-    //   opacity: 0.7;
-    //   margin-bottom: 5px;
-    //   p {
-    //     color: #fafafa;
-    //     word-wrap: break-word;
-    //     font-size: 1.125rem;
-    //     line-height: 1.125rem * 1.5;
-    //   }
-    // }
-    // .textRight {
-    //   align-self: flex-end;
-    //   max-width: 200px;
-    //   background-color: #212222;
-    //   border-radius: 5px;
-    //   padding: 10px;
-    //   opacity: 0.7;
-    //   margin-bottom: 5px;
-    //   p {
-    //     color: #fafafa;
-    //     word-wrap: break-word;
-    //     font-size: 1.125rem;
-    //     line-height: 1.125rem * 1.5;
-    //   }
-    // }
+    overflow: scroll;
+    overflow-x: hidden;
+    
+
+    &::-webkit-scrollbar {
+      width: 7.5px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #fff;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #eee;
+      border-radius: 20px;
+    }
+    
+    .textLeft {
+      align-self: flex-start;
+      max-width: 200px;
+      background-color: #414141;
+      border-radius: 5px;
+      padding: 10px;
+      opacity: 0.7;
+      margin-bottom: 5px;
+      p {
+        color: #fafafa;
+        word-wrap: break-word;
+        font-size: 1.125rem;
+        line-height: 1.125rem * 1.5;
+      }
+    }
+    .textRight {
+      align-self: flex-end;
+      max-width: 200px;
+      background-color: #212222;
+      border-radius: 5px;
+      padding: 10px;
+      opacity: 0.7;
+      margin-bottom: 5px;
+      p {
+        color: #fafafa;
+        word-wrap: break-word;
+        font-size: 1.125rem;
+        line-height: 1.125rem * 1.5;
+      }
+    }
   }
   .input {
     display: flex;
