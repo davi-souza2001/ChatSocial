@@ -9,17 +9,29 @@ import useChat from '../../service/hook/useChat';
 
 export default function ButtonAppBar() {
   const { user, loginGoogle } = useAuth();
-  const { messageUserUnic } = useChat();
+  const { messageUserUnic, menuMobile, setMenuMobile } = useChat();
 
   function logout() {
     Cookie.remove('Admin-cookie-social-chat');
     route.push('/login');
   }
 
+  const handleClick = () => {
+    setMenuMobile(() => !menuMobile);
+    console.log(menuMobile);
+  };
+
   return (
     <div className={styles.topBar}>
       <div className={styles.userInfo}>
-        {user?.photo && <Image src={user.photo} width={75} height={75} alt='Imagem da conversa geral' />}
+        {user?.photo && (
+          <Image
+            src={user.photo}
+            width={75}
+            height={75}
+            alt="Imagem da conversa geral"
+          />
+        )}
         {user?.name ? (
           <h1 onClick={logout}>{user.name}</h1>
         ) : (
@@ -30,10 +42,21 @@ export default function ButtonAppBar() {
         {messageUserUnic.name === 'Geral'
           ? null
           : messageUserUnic.photo && (
-              <Image src={messageUserUnic.photo} width={50} height={50} alt={`Imagem do usuário ${messageUserUnic.name}` || 'Imagem do usuário'}/>
+              <Image
+                src={messageUserUnic.photo}
+                width={50}
+                height={50}
+                alt={
+                  `Imagem do usuário ${messageUserUnic.name}` ||
+                  'Imagem do usuário'
+                }
+              />
             )}
         <h1>{messageUserUnic?.name}</h1>
         <h2>Online</h2>
+        <button onClick={handleClick} className={styles.menuMobile}>
+          MENU
+        </button>
       </div>
     </div>
   );

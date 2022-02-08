@@ -6,10 +6,10 @@ import styles from './ListMessage.module.scss';
 
 export default function index() {
   const { users, user } = UseAuth();
-  const { setMessageUserUnic } = UseChat();
-  
+  const { setMessageUserUnic, menuMobile } = UseChat();
+
   return (
-    <div className={styles.users}>
+    <div className={`${styles.users} ${menuMobile ? styles.ativo : ''}`}>
       <div className={styles.search}>
         <input type="text" />
         <i className="fas fa-search"></i>
