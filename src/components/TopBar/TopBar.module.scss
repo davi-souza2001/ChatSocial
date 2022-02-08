@@ -3,8 +3,9 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  box-shadow: 0 2px 4px rgba(30, 60, 90, 0.1);
   height: 10vh;
+  box-shadow: 0 2px 4px rgba(30, 60, 90, 0.1);
+  border-bottom: 1px solid #eee;
   .userInfo {
     background-color: #eee;
     padding: 10px 0;
@@ -13,12 +14,18 @@
     align-items: center;
     justify-content: space-around;
     flex: 1;
+    @media only screen and (max-width: 1400px) {
+      flex: 2;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(30, 60, 90, 0.1);
+    }
     img {
       border-radius: 50%;
     }
     h1 {
       font-size: 1.2rem;
       font-weight: 600;
+      margin-left: 10px;
     }
     h2 {
       font-size: 1.2rem;
@@ -38,6 +45,13 @@
     h2 {
       font-size: 1.2rem;
       font-weight: 600;
+    }
+  }
+  .menuMobile {
+    border: 1px solid red;
+    display: none;
+    @media only screen and (max-width: 1400px) {
+      display: block;
     }
   }
 }
