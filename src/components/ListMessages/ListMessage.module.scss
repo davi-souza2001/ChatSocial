@@ -39,14 +39,14 @@
   ul {
     width: 100%;
     li {
-      margin: 0 50px 50px 0;
       background-color: #fff;
       padding: 10px 20px;
       box-shadow: rgb(0 0 0 / 10%) 2px 2px 4px 0px;
       display: flex;
       flex-direction: row;
-      align-items: star;
+      align-items: start;
       justify-content: start;
+      margin: 0 50px 0 50px;
       & + li {
         margin-top: 20px;
       }

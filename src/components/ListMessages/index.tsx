@@ -7,8 +7,6 @@ import styles from './ListMessage.module.scss';
 export default function index() {
   const { users, user } = UseAuth();
   const { setMessageUserUnic } = UseChat();
-
-
   
   return (
     <div className={styles.users}>
