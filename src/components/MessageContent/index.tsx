@@ -3,19 +3,44 @@ import UseChat from '../../service/hook/useChat';
 import styles from './MessageContent.module.scss';
 
 export default function index() {
-  const { sendMensage, setMessageSend, messages } = UseChat()
+  const { sendMensage, setMessageSend, messages, messageUserUnic } = UseChat()
   const { user } = UseAuth()
 
-  return (
-    <div className={styles.chat}>
-      <div className={styles.containerText}>
-        {user?.email != '' && messages?.map((msg: any) => {
+  function rendeMensages() {
+    if (messageUserUnic.name === 'Geral') {
+      return (
+        messages?.map((msg: any) => {
           return (
             <div className={msg.userSend == user?.email ? styles.textRight : styles.textLeft} key={msg.id}>
               <p>{msg.mensage}</p>
             </div>
           )
-        })}
+        }))
+    } else if (messageUserUnic.email != '') {
+      return messages?.map((msg: any) => {
+        if (user?.email === msg.userReceived || user?.email === msg.userSend) {
+          return (
+            <div className={msg.userSend == user?.email ? styles.textRight : styles.textLeft} key={msg.id}>
+              <p>{msg.mensage}</p>
+            </div>
+          )
+        }
+      })
+    }
+  }
+
+  // {user?.email != '' && messageUserUnic.name === 'Geral' && messages?.map((msg: any) => {
+  //   return (
+  //     <div className={msg.userSend == user?.email ? styles.textRight : styles.textLeft} key={msg.id}>
+  //       <p>{msg.mensage}</p>
+  //     </div>
+  //   )
+  // })}
+
+  return (
+    <div className={styles.chat}>
+      <div className={styles.containerText}>
+        {rendeMensages()}
       </div>
       <div className={styles.input}>
         <i className="fas fa-plus"></i>
