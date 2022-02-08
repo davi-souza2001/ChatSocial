@@ -6,18 +6,20 @@ import styles from './ListMessage.module.scss';
 
 export default function index() {
   const { users, user } = UseAuth();
-  const { setMessageUserUnic } = UseChat()
+  const { setMessageUserUnic } = UseChat();
 
   return (
     <div className={styles.users}>
       <div className={styles.search}>
         <input type="text" />
+        <i className="fas fa-search"></i>
       </div>
-
       <ul>
-        <li onClick={() => {
-          setMessageUserUnic({ name: 'Geral' });
-        }}>
+        <li
+          onClick={() => {
+            setMessageUserUnic({ name: 'Geral' });
+          }}
+        >
           <BoxMessage name={'Geral'} />
         </li>
         {users?.map((userUni: any) => {
