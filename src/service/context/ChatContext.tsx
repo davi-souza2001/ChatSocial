@@ -16,18 +16,28 @@ const AuthContext = createContext<AuthContextProps>({});
 
 export function ChatProvider(props: any) {
   const { user } = useAuth()
-  const [messageUserUnic, setMessageUserUnic] = useState({ name: 'Geral' })
+  const [messageUserUnic, setMessageUserUnic] = useState({ name: 'Geral', email: '' })
   const [messageSend, setMessageSend] = useState('')
   const [messages, setMessages] = useState<Object[]>([])
   const unicId = Math.floor(Date.now() * Math.random()).toString(36)
 
   function sendMensage() {
     if (user?.email != '') {
-      const db = database
-      set(ref(db, `chat/${messageUserUnic.name}/` + unicId), {
-        mensage: messageSend,
-        userSend: user?.email
-      })
+      if (messageUserUnic.name === 'Geral') {
+        const db = database
+        set(ref(db, `chat/${messageUserUnic.name}/` + unicId), {
+          mensage: messageSend,
+          userSend: user?.email,
+          userReceived: 'Geral'
+        })
+      } else if (messageUserUnic.name) {
+        const db = database
+        set(ref(db, `chat/${messageUserUnic.name}/` + unicId), {
+          mensage: messageSend,
+          userSend: user?.email,
+          userReceived: messageUserUnic.email
+        })
+      }
     } else {
       alert('Faça login')
     }
