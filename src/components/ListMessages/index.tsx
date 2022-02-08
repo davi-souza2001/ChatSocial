@@ -8,6 +8,8 @@ export default function index() {
   const { users, user } = UseAuth();
   const { setMessageUserUnic } = UseChat();
 
+
+  
   return (
     <div className={styles.users}>
       <div className={styles.search}>
