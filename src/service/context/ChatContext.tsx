@@ -35,7 +35,6 @@ export function ChatProvider(props: any) {
   const [messages, setMessages] = useState<Object[]>([]);
   const unicId = new Date().setMilliseconds(192);
   const [menuMobile, setMenuMobile] = useState(true);
-  // d.setMilliseconds(192)
 
   function sendMensage(e: any) {
     e.preventDefault();
