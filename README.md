@@ -1,11 +1,7 @@
-Building...
-<!-- Refazer topBar -->
-<!-- Refazer topBar -->
-<!-- Mudado -->
-
-## Regras de negocio
+## Anotações
 
 [x] Se estressar <br>
+[ ] Remover a foto de geral <br>
 [ ] Resolver o problema de mandar mensagem igual <br>
 [ ] Fazer o menu mobile. (Carlos) <br>
 [ ] Limpar o value do input quando enviar. (Davi) <br>

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import route from 'next/router';
 import Image from 'next/image';
 import Cookie from 'js-cookie';
@@ -21,7 +19,7 @@ export default function ButtonAppBar() {
 
   const handleClick = () => {
     setMenuMobile(() => !menuMobile);
-    console.log(menuMobile + 'menu ativo');
+    console.log(menuMobile);
   };
 
   return (
