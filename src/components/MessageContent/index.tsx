@@ -40,14 +40,18 @@ export default function index() {
 
   return (
     <div className={styles.chat}>
-      <div className={styles.containerText}>{rendeMensages()}</div>
+      <div className={styles.containerText}>
+        {messageUserUnic.name === 'Geral' ? rendeMensages() : <h1>Em breve</h1>}
+      </div>
       <div className={styles.input}>
-        <form onSubmit={sendMensage}>
-          <input type="text" onChange={(e) => setMessageSend(e.target.value)} />
-          <button type="submit">
-            <i className="far fa-paper-plane" onClick={sendMensage}></i>
-          </button>
-        </form>
+        {messageUserUnic.name === 'Geral' ? (
+          <form onSubmit={sendMensage}>
+            <input type="text" onChange={(e) => setMessageSend(e.target.value)} />
+            <button type="submit">
+              <i className="far fa-paper-plane" onClick={sendMensage}></i>
+            </button>
+          </form>
+        ) : <h1>Em breve</h1>}
       </div>
     </div>
   );

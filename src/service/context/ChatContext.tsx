@@ -52,7 +52,9 @@ export function ChatProvider(props: any) {
         setMessageSend('');
       } else if (messageUserUnic.name) {
         const db = database;
-        set(ref(db, `chat/${messageUserUnic.name}/` + unicId), {
+        const postList = ref(db, `chat/${messageUserUnic.name}`)
+        const newPostRef = push(postList)
+        set(newPostRef, {
           mensage: messageSend,
           userSend: user?.email,
           userReceived: messageUserUnic.email,
