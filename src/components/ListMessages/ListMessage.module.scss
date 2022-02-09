@@ -50,12 +50,8 @@
   }
   ul {
     width: 100%;
-    @media only screen and (max-width: 1400px) {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+    margin-top: 20px;
+    background-color: red;
     li {
       background-color: #fff;
       padding: 10px 20px;

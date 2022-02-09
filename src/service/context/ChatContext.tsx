@@ -33,7 +33,7 @@ export function ChatProvider(props: any) {
   const [messageSend, setMessageSend] = useState('');
   const [messages, setMessages] = useState<Object[]>([]);
   const unicId = new Date().getTime();
-  const [menuMobile, setMenuMobile] = useState(false);
+  const [menuMobile, setMenuMobile] = useState(true);
 
   function sendMensage() {
     if (user?.email != '') {
