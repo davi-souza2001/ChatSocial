@@ -3,9 +3,9 @@ Building...
 <!-- Refazer topBar -->
 <!-- Mudado -->
 
-[x] Se estressar
-[ ] Menu
-[ ] Limpar input quandoo enviar
-[ ] Ajeitar login
-[ ] Responsividade
-[ ] Modo escuro
+[x] Se estressar <br>
+[ ] Menu <br>
+[ ] Limpar input quandoo enviar <br>
+[ ] Ajeitar login <br>
+[ ] Responsividade <br>
+[ ] Modo escuro <br>
