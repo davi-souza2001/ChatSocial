@@ -21,7 +21,7 @@ export default function ButtonAppBar() {
 
   const handleClick = () => {
     setMenuMobile(() => !menuMobile);
-    console.log(menuMobile);
+    console.log(menuMobile + 'menu ativo');
   };
 
   return (
@@ -57,9 +57,6 @@ export default function ButtonAppBar() {
             )}
         <h1>{messageUserUnic?.name}</h1>
         <h2>Online</h2>
-        <button onClick={handleClick} className={styles.menuMobile}>
-          MENU
-        </button>
       </div>
     </div>
   );

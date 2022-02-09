@@ -8,6 +8,7 @@ import {
   set,
   child,
   onValue,
+  push
 } from '../../firebase/config';
 import useAuth from '../hook/useAuth';
 
@@ -41,11 +42,14 @@ export function ChatProvider(props: any) {
     if (user?.email != '' && messageSend != '') {
       if (messageUserUnic.name === 'Geral') {
         const db = database;
-        set(ref(db, `chat/${messageUserUnic.name}/` + unicId), {
+        const postList = ref(db, `chat/Geral`)
+        const newPostRef = push(postList)
+        set(newPostRef, {
           mensage: messageSend,
           userSend: user?.email,
           userReceived: 'Geral',
         });
+        setMessageSend('');
       } else if (messageUserUnic.name) {
         const db = database;
         set(ref(db, `chat/${messageUserUnic.name}/` + unicId), {
@@ -53,6 +57,7 @@ export function ChatProvider(props: any) {
           userSend: user?.email,
           userReceived: messageUserUnic.email,
         });
+        setMessageSend('');
       }
     } else {
       alert('Faça login ou escreva algo para enviar!');

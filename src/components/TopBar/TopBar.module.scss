@@ -47,11 +47,83 @@
       font-weight: 600;
     }
   }
-  .menuMobile {
-    border: 1px solid red;
+
+  #btn-mobile {
     display: none;
-    @media only screen and (max-width: 1400px) {
+  }
+  @media only screen and (max-width: 1100px) {
+    header {
+      justify-content: space-between;
+      background: black;
+    }
+    header h2 {
+      margin: 0 50px;
+    }
+    header ul {
       display: block;
+      position: absolute;
+      top: 45px;
+      right: 0px;
+      background: black;
+      transition: 0.6s;
+      z-index: 1000;
+      height: 0px;
+      visibility: hidden;
+      overflow-y: hidden;
+    }
+    header.active ul {
+      height: 160px;
+      visibility: visible;
+      overflow-y: auto;
+      padding-right: 30px;
+    }
+    header ul a {
+      margin-left: 30px;
+      padding-top: 2.5px;
+      padding-bottom: 2.5px;
+    }
+    header li + li {
+      padding-left: 0;
+    }
+    header li {
+      padding: 5px 0;
+    }
+    #btn-mobile {
+      display: flex;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      gap: 0.5rem;
+      margin-right: 25px;
+    }
+    #hamburger {
+      display: block;
+      width: 20px;
+      border-top: 2px solid black;
+      color: black;
+    }
+    #hamburger::after,
+    #hamburger::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: black;
+      margin-top: 5px;
+      transition: 0.3s;
+      position: relative;
+    }
+    header.active #hamburger {
+      border-top-color: transparent;
+    }
+    header.active #hamburger::before {
+      transform: rotate(135deg);
+    }
+    header.active #hamburger::after {
+      transform: rotate(-135deg);
+      top: -7px;
     }
   }
 }
