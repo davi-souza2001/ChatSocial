@@ -5,8 +5,8 @@ Building...
 
 ## Regras de negocio
 
-- Menu.
-- Limpar input quandoo enviar.
-- Ajeitar login.
-- Responsividade.
-- Modo escuro
+- Menu. (Carlos)
+- Limpar input quandoo enviar. (Davi)
+- Ajeitar login. (Davi)
+- Responsividade. (Carlos)
+- Modo escuro (Davi)
