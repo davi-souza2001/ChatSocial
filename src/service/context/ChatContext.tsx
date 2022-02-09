@@ -35,7 +35,8 @@ export function ChatProvider(props: any) {
   const unicId = new Date().getTime();
   const [menuMobile, setMenuMobile] = useState(true);
 
-  function sendMensage() {
+  function sendMensage(e: any) {
+    e.preventDefault()
     if (user?.email != '') {
       if (messageUserUnic.name === 'Geral') {
         const db = database;

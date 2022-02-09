@@ -35,9 +35,12 @@ export default function index() {
         {rendeMensages()}
       </div>
       <div className={styles.input}>
-        <i className="fas fa-plus"></i>
-        <input type="text" onChange={(e) => setMessageSend(e.target.value)} />
-        <i className="far fa-paper-plane" onClick={sendMensage}></i>
+        <form onSubmit={sendMensage}>
+          <i className="fas fa-plus"></i>
+          <input type="text" onChange={(e) => setMessageSend(e.target.value)} />
+          {/* <i className="far fa-paper-plane" onClick={sendMensage}></i> */}
+          <button type='submit'>Enviar</button>
+        </form>
       </div>
     </div>
   );
