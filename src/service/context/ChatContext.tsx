@@ -32,12 +32,13 @@ export function ChatProvider(props: any) {
   });
   const [messageSend, setMessageSend] = useState('');
   const [messages, setMessages] = useState<Object[]>([]);
-  const unicId = new Date().getTime();
+  const unicId = new Date().setMilliseconds(192);
   const [menuMobile, setMenuMobile] = useState(true);
+  // d.setMilliseconds(192)
 
   function sendMensage(e: any) {
-    e.preventDefault()
-    if (user?.email != '') {
+    e.preventDefault();
+    if (user?.email != '' && messageSend != '') {
       if (messageUserUnic.name === 'Geral') {
         const db = database;
         set(ref(db, `chat/${messageUserUnic.name}/` + unicId), {
@@ -54,7 +55,7 @@ export function ChatProvider(props: any) {
         });
       }
     } else {
-      alert('Faça login');
+      alert('Faça login ou escreva algo para enviar!');
     }
   }
 

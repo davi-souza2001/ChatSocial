@@ -9,14 +9,15 @@
     padding: 20px;
     height: 80vh;
     width: 50vw;
-
     display: flex;
     flex-direction: column;
-
     overflow: scroll;
     overflow-x: hidden;
-    
-
+    margin-bottom: 25px;
+    @media only screen and (max-width: 1100px) {
+      border: 1px solid red;
+      width: 95%;
+    }
     &::-webkit-scrollbar {
       width: 7.5px;
     }
@@ -26,8 +27,8 @@
     &::-webkit-scrollbar-thumb {
       background-color: #eee;
       border-radius: 20px;
+      border: 1px solid #333;
     }
-    
     .textLeft {
       align-self: flex-start;
       max-width: 200px;
@@ -86,6 +87,10 @@
         outline: 0;
         box-shadow: 0 0 0 2px #fff, 0 0 0 4px #eee;
       }
+    }
+    button {
+      border: none;
+      background-color: transparent;
     }
   }
 }
