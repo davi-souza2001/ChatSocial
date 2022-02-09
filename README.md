@@ -9,3 +9,4 @@ Building...
 [ ] Ajeitar login <br>
 [ ] Responsividade <br>
 [ ] Modo escuro <br>
+[ ] Ajeitar o estilo
