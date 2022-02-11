@@ -33,7 +33,6 @@ export function ChatProvider(props: any) {
   });
   const [messageSend, setMessageSend] = useState('');
   const [messages, setMessages] = useState<Object[]>([]);
-  const unicId = new Date().setMilliseconds(192);
   const [menuMobile, setMenuMobile] = useState(true);
 
   function sendMensage(e: any) {
@@ -48,7 +47,8 @@ export function ChatProvider(props: any) {
           userSend: user?.email,
           userReceived: 'Geral',
         });
-        setMessageSend('');
+        console.log('chegou aqu escrevendo')
+        console.log(messageSend)
       } else if (messageUserUnic.name) {
         const db = database;
         const postList = ref(db, `chat/${messageUserUnic.name}`)
