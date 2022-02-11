@@ -5,39 +5,36 @@
   align-items: center;
   justify-content: start;
   min-height: 90vh;
+  background-color: #17232b;
   .containerText {
     padding: 20px;
-    height: 80vh;
-    width: 50vw;
+    height: 90vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     overflow: scroll;
     overflow-x: hidden;
     margin-bottom: 25px;
-    @media only screen and (max-width: 1100px) {
-      width: 95%;
-    }
     &::-webkit-scrollbar {
       width: 7.5px;
     }
+    &::-webkit-scrollbar-track-piece {
+      background: none;
+    }
     &::-webkit-scrollbar-track {
-      background: #fff;
+      background: none;
     }
     &::-webkit-scrollbar-thumb {
-      background-color: #eee;
-      border-radius: 20px;
-      border: 1px solid #333;
+      background-color: #2a3942;
     }
     .textLeft {
       align-self: flex-start;
-      max-width: 200px;
-      background-color: #414141;
+      max-width: 400px;
       border-radius: 5px;
       padding: 10px;
-      opacity: 0.7;
-      margin-bottom: 5px;
+      margin: 5px 0;
+      background-color: #202c33;
       p {
-        color: #fafafa;
         word-wrap: break-word;
         font-size: 1.125rem;
         line-height: 1.125rem * 1.5;
@@ -45,14 +42,12 @@
     }
     .textRight {
       align-self: flex-end;
-      max-width: 200px;
-      background-color: #212222;
+      max-width: 400px;
       border-radius: 5px;
       padding: 10px;
-      opacity: 0.7;
-      margin-bottom: 5px;
+      margin: 5px 0;
+      background-color: #005c4b;
       p {
-        color: #fafafa;
         word-wrap: break-word;
         font-size: 1.125rem;
         line-height: 1.125rem * 1.5;
@@ -63,28 +58,40 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #202c33;
+    width: 100%;
+    padding: 10px 0;
     i {
-      font-size: 1.125rem;
+      font-size: 1.25rem;
       transition: 0.3s;
+      color: #8696a0;
       &:hover {
         cursor: pointer;
-        color: #18e;
       }
     }
     input {
       margin: 0 20px;
       border: none;
-      background-color: #eee;
+      background-color: #2a3942;
       padding: 10px;
       height: 40px;
       width: 250px;
-      color: #333;
       border-radius: 5px;
       transition: 0.3s;
-      &:focus,
-      &:hover {
-        outline: 0;
-        box-shadow: 0 0 0 2px #fff, 0 0 0 4px #eee;
+      color: #e9edef;
+      &::-webkit-input-placeholder {
+        color: #e9edef6e;
+      }
+      &:-moz-placeholder {
+        /* Firefox 18- */
+        color: #e9edef6e;
+      }
+      &::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #e9edef6e;
+      }
+      &:-ms-input-placeholder {
+        color: #e9edef6e;
       }
     }
     button {

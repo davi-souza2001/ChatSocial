@@ -1,7 +1,6 @@
+import Image from 'next/image';
 import UseAuth from '../../service/hook/useAuth';
 import UseChat from '../../service/hook/useChat';
-import BoxMessage from './BoxMessage';
-
 import styles from './ListMessage.module.scss';
 
 export default function index() {
@@ -16,7 +15,7 @@ export default function index() {
             setMessageUserUnic({ name: 'Geral' });
           }}
         >
-          <BoxMessage name={'Geral'} />
+          <h1>Geral</h1>
         </li>
         {users?.map((userUni: any) => {
           if (userUni.email != user?.email) {
@@ -27,7 +26,8 @@ export default function index() {
                   setMessageUserUnic(userUni);
                 }}
               >
-                <BoxMessage name={userUni.name} img={userUni.photo} />
+                <Image src={userUni.photo} width={50} height={50} />
+                <h1>{userUni.name}</h1>
               </li>
             );
           }

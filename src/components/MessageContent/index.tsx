@@ -1,10 +1,12 @@
 import UseAuth from '../../service/hook/useAuth';
 import UseChat from '../../service/hook/useChat';
 import styles from './MessageContent.module.scss';
+import React from 'react';
 
 export default function index() {
   const { sendMensage, setMessageSend, messages, messageUserUnic } = UseChat();
   const { user } = UseAuth();
+  const [documentGet, setDocumentGet] = React.useState(null);
 
   function rendeMensages() {
     if (messageUserUnic.name === 'Geral') {
@@ -39,19 +41,25 @@ export default function index() {
   }
 
   return (
-    <div className={styles.chat}>
+    <div className={styles.chat} id="chat">
       <div className={styles.containerText}>
         {messageUserUnic.name === 'Geral' ? rendeMensages() : <h1>Em breve</h1>}
       </div>
       <div className={styles.input}>
         {messageUserUnic.name === 'Geral' ? (
           <form onSubmit={sendMensage}>
-            <input type="text" onChange={(e) => setMessageSend(e.target.value)} />
+            <input
+              type="text"
+              onChange={(e) => setMessageSend(e.target.value)}
+              placeholder="Escreva uma mensagem"
+            />
             <button type="submit">
               <i className="far fa-paper-plane" onClick={sendMensage}></i>
             </button>
           </form>
-        ) : <h1>Em breve</h1>}
+        ) : (
+          <h1>Em breve</h1>
+        )}
       </div>
     </div>
   );
