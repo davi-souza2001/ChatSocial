@@ -1,4 +1,4 @@
-.topBar {
+.header {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -14,10 +14,6 @@
     justify-content: space-around;
     border-right: 1px solid rgba(134, 150, 160, 0.15);
     flex: 1;
-    @media only screen and (max-width: 1400px) {
-      flex: 2;
-      box-shadow: 0 2px 4px rgba(30, 60, 90, 0.1);
-    }
     img {
       border-radius: 50%;
     }

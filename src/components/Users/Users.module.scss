@@ -16,7 +16,7 @@
       align-items: start;
       justify-content: start;
       & + li {
-        border-top: 1px solid rgba(134,150,160,0.15);
+        border-top: 1px solid rgba(134, 150, 160, 0.15);
       }
       padding: 20px 0;
       img {
@@ -29,7 +29,7 @@
         margin-left: 20px;
         &::after {
           content: '';
-          margin-left: 5px;
+          margin-left: 10px;
           margin-bottom: 1.5px;
           color: greenyellow;
           width: 7px;

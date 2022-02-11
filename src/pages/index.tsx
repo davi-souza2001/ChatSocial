@@ -1,6 +1,6 @@
-import TopBar from '../components/TopBar';
-import ListMessages from '../components/ListMessages';
-import MessageContent from '../components/MessageContent';
+import TopBar from '../components/Header';
+import ListMessages from '../components/Users';
+import MessageContent from '../components/Chat';
 import styles from './index.module.scss'
 
 export default function index() {

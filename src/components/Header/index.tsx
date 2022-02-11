@@ -4,9 +4,8 @@ import Cookie from 'js-cookie';
 
 import useAuth from '../../service/hook/useAuth';
 
-import styles from './TopBar.module.scss';
+import styles from './Header.module.scss';
 import useChat from '../../service/hook/useChat';
-import { useState } from 'react';
 
 export default function ButtonAppBar() {
   const { user, loginGoogle } = useAuth();
@@ -17,13 +16,20 @@ export default function ButtonAppBar() {
     route.push('/login');
   }
 
-  const handleClick = () => {
-    setMenuMobile(() => !menuMobile);
-    console.log(menuMobile);
+  //Limpa o nome
+  //@ts-ignore
+  String.prototype.nameClean = function () {
+    return this.split(' ').slice(0, 1).join(' ').toLowerCase();
+  };
+
+  //Adiciona maiusculo na primeira letra
+  //@ts-ignore
+  String.prototype.nameCleaned = function () {
+    return this.charAt(0).toUpperCase() + this.substr(1);
   };
 
   return (
-    <div className={styles.topBar}>
+    <header className={styles.header}>
       <div className={styles.userInfo}>
         {user?.photo && (
           <Image
@@ -34,7 +40,8 @@ export default function ButtonAppBar() {
           />
         )}
         {user?.name ? (
-          <h1 onClick={logout}>{user.name}</h1>
+          //@ts-ignore
+          <h1 onClick={logout}>{user.name.nameClean().nameCleaned()}</h1>
         ) : (
           <h2 onClick={loginGoogle}>Logar</h2>
         )}
@@ -53,9 +60,9 @@ export default function ButtonAppBar() {
                 }
               />
             )}
-        <h1>{messageUserUnic?.name}</h1>
+        <h1>{messageUserUnic?.name.nameClean().nameCleaned()}</h1>
         <h2>Online</h2>
       </div>
-    </div>
+    </header>
   );
 }

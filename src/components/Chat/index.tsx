@@ -1,12 +1,11 @@
 import UseAuth from '../../service/hook/useAuth';
 import UseChat from '../../service/hook/useChat';
-import styles from './MessageContent.module.scss';
+import styles from './Chat.module.scss';
 import React from 'react';
 
 export default function index() {
   const { sendMensage, setMessageSend, messages, messageUserUnic } = UseChat();
   const { user } = UseAuth();
-  const [documentGet, setDocumentGet] = React.useState(null);
 
   function rendeMensages() {
     if (messageUserUnic.name === 'Geral') {
