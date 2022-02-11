@@ -7,3 +7,4 @@
 [ ] Responsividade. (Carlos) <br>
 [ ] Modo escuro (Davi) <br>
 [ ] Refazer o estilo <br>
+[ ] Ajeitar a largura do input chat 
