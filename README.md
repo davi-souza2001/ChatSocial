@@ -7,3 +7,12 @@
 [ ] Modo escuro (Davi) <br>
 [ ] Refazer o estilo <br>
 [ ] Ajeitar a largura do input chat 
+
+
+<!-- Rules of Firebase -->
+<!-- {
+  "rules": {
+    ".read": "now < 1644807600000",  // 2022-2-14
+    ".write": "now < 1644807600000",  // 2022-2-14
+  }
+} -->

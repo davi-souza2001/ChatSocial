@@ -15,6 +15,9 @@
       flex-direction: row;
       align-items: start;
       justify-content: start;
+      h1{
+        cursor: pointer;
+      }
       & + li {
         border-top: 1px solid rgba(134, 150, 160, 0.15);
       }
