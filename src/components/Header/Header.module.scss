@@ -44,3 +44,33 @@
     }
   }
 }
+
+.menuToggle{
+  display: none;
+}
+
+@media (max-width: 815px){
+  .menuToggle{
+    display: flex;
+    cursor: pointer;
+  }
+  
+  .toggle{
+    position: absolute;
+    width: 80vw;
+    top: 10vh;
+    right: 30px;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 475px){
+    .userInfo{
+        display: none;
+        background-color: red;
+    }
+}
