@@ -11,7 +11,7 @@ import useChat from '../../service/hook/useChat';
 export default function ButtonAppBar() {
   const { user, loginGoogle } = useAuth();
   const { messageUserUnic, menuMobile, setMenuMobile } = useChat();
-  const [useToggle, setUseToggle] = useState(false)
+  const [useToggle, setUseToggle] = useState(false);
 
   function logout() {
     Cookie.remove('Admin-cookie-social-chat');
@@ -52,19 +52,22 @@ export default function ButtonAppBar() {
         {messageUserUnic.name === 'Geral'
           ? null
           : messageUserUnic.photo && (
-            <Image
-              src={messageUserUnic.photo}
-              width={50}
-              height={50}
-              alt={
-                `Imagem do usuário ${messageUserUnic.name}` ||
-                'Imagem do usuário'
-              }
-            />
-          )}
+              <Image
+                src={messageUserUnic.photo}
+                width={50}
+                height={50}
+                alt={
+                  `Imagem do usuário ${messageUserUnic.name}` ||
+                  'Imagem do usuário'
+                }
+              />
+            )}
         <h1>{messageUserUnic?.name.nameClean().nameCleaned()}</h1>
-        <h2>Online</h2>
-        <div className={styles.menuToggle} onClick={() =>  setUseToggle(!useToggle)}>
+        {/* <h2 style={{border: '1px solid red'}}>Online</h2> */}
+        <div
+          className={styles.menuToggle}
+          onClick={() => setUseToggle(!useToggle)}
+        >
           <p>Menu</p>
         </div>
         {useToggle && (
