@@ -34,8 +34,8 @@ export default function ButtonAppBar() {
         {user?.photo && (
           <Image
             src={user.photo}
-            width={75}
-            height={75}
+            width={60}
+            height={60}
             alt="Imagem da conversa geral"
           />
         )}
