@@ -14,6 +14,9 @@
     justify-content: space-around;
     border-right: 1px solid rgba(134, 150, 160, 0.15);
     flex: 1;
+    @media only screen and (max-width: 800px) {
+      flex: 2;
+    }
     height: 10vh;
     img {
       border-radius: 50%;
@@ -45,17 +48,17 @@
   }
 }
 
-.menuToggle{
+.menuToggle {
   display: none;
 }
 
-@media (max-width: 815px){
-  .menuToggle{
+@media (max-width: 815px) {
+  .menuToggle {
     display: flex;
     cursor: pointer;
   }
-  
-  .toggle{
+
+  .toggle {
     position: absolute;
     width: 80vw;
     top: 10vh;
@@ -68,9 +71,8 @@
   }
 }
 
-@media (max-width: 475px){
-    .userInfo{
-        display: none;
-        background-color: red;
-    }
+@media (max-width: 475px) {
+  .userInfo {
+    display: none;
+  }
 }
