@@ -17,7 +17,17 @@ export default function index() {
             }
             key={msg.id}
           >
-            <p>{msg.mensage}</p>
+            <div>
+              {msg.userNameSend}
+            </div>
+            <div className={styles.boxNameHour}>
+              <div className={styles.mensageOnly}>
+                <p>{msg.mensage}</p>
+              </div>
+              <div>
+                <p>{msg.hour}</p>
+              </div>
+            </div>
           </div>
         );
       });

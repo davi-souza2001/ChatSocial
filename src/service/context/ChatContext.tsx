@@ -34,6 +34,9 @@ export function ChatProvider(props: any) {
   const [messageSend, setMessageSend] = useState('');
   const [messages, setMessages] = useState<Object[]>([]);
   const [menuMobile, setMenuMobile] = useState(true);
+  let hour = new Date().getHours()
+  let minute = new Date().getMinutes()
+  let hourFinal = `${hour}:${minute}`
 
   function sendMensage(e: any) {
     e.preventDefault();
@@ -46,9 +49,10 @@ export function ChatProvider(props: any) {
           mensage: messageSend,
           userSend: user?.email,
           userReceived: 'Geral',
+          hour: hourFinal,
+          userNameSend: user?.name
         });
-        console.log('chegou aqu escrevendo')
-        console.log(messageSend)
+
       } else if (messageUserUnic.name) {
         const db = database;
         const postList = ref(db, `chat/${messageUserUnic.name}`)
