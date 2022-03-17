@@ -3,13 +3,13 @@ import { getAuth } from 'firebase/auth';
 import { getDatabase, ref, set, child, get, onValue, push } from 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAqsxNkZfMry94VihiFPxav5QYmyrb8Vhw',
-  authDomain: 'chatsocial-2001.firebaseapp.com',
-  projectId: 'chatsocial-2001',
-  storageBucket: 'chatsocial-2001.appspot.com',
-  messagingSenderId: '720248367338',
-  appId: '1:720248367338:web:4afb0035b524f951ab8f93',
-  databaseURL: 'https://chatsocial-2001-default-rtdb.firebaseio.com/',
+  apiKey: "AIzaSyBiVBX2NUx0OlUz9AMhB_W8NQ0R70wQ-xQ",
+  authDomain: "chatsocialteste.firebaseapp.com",
+  databaseURL: "https://chatsocialteste-default-rtdb.firebaseio.com",
+  projectId: "chatsocialteste",
+  storageBucket: "chatsocialteste.appspot.com",
+  messagingSenderId: "298779586512",
+  appId: "1:298779586512:web:0585d26f14dc98102893d5"
 };
 
 const app = initializeApp(firebaseConfig);
